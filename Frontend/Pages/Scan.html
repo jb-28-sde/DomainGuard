@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Domain Scanner</title>
   <link rel="stylesheet" href="../Stylesheet/Scan.css" />
 </head>
@@ -11,14 +10,17 @@
   <div class="container">
     <h2>Domain Scanner</h2>
 
-    <input type="text" id="domainInput" placeholder="Enter domain (example.com)" />
+    <input type="text" id="domainInput" placeholder="Enter domain" />
 
-    <button onclick="scanDomain()">Scan</button>
+    <button id="scanBtn">Scan</button>
 
-    <div id="result"></div>
+    <div id="error" style="color:red; margin-top:10px;"></div>
+
+    <div id="result" style="margin-top:15px;"></div>
   </div>
 
-  <script src="../Javascript/Scan.js"></script>
+  <!-- IMPORTANT -->
+  <script type="module" src="../Javascript/Scan.js"></script>
 
 </body>
 </html>
