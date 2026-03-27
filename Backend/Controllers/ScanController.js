@@ -1,4 +1,5 @@
 import Scan from "../Models/ScanModel.js";
+import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
 
 export const createScan = (req, res) => {
   const inputDomain = req.body.domain;
@@ -31,4 +32,19 @@ export const createScan = (req, res) => {
       console.log(error);
       res.status(500).json({ message: "error saving domain" });
     });
+};
+export const generateDomainVariants = (req, res) => {
+  const { domain } = req.body;
+
+  if (!domain) {
+    return res.status(400).json({ message: "Domain is required" });
+  }
+
+  const variants = generateVariants(domain);
+
+  res.json({
+    original: domain,
+    total: variants.length,
+    variants,
+  });
 };
