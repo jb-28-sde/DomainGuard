@@ -30,30 +30,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await res.json();
 
         if (!res.ok) {
-          // ✅ SHOW BACKEND ERROR MESSAGE
           throw new Error(data.message || "Server error");
         }
 
         return data;
       })
-      .then((data) => {
-        const domainEl = document.createElement("p");
-        domainEl.textContent = "Domain: " + (data.domain || domain);
+      .then(() => {
+        // ✅ EXACT TL REQUIREMENT
+        const successMsg = document.createElement("p");
+        successMsg.textContent = "Saved in database.";
 
-        const statusEl = document.createElement("p");
-        statusEl.textContent = "Status: " + (data.status || "Not Available");
+        successMsg.style.color = "green";
+        successMsg.style.fontWeight = "600";
 
-        const messageEl = document.createElement("p");
-        messageEl.textContent = "Message: " + (data.message || "No message");
-
-        resultDiv.appendChild(domainEl);
-        resultDiv.appendChild(statusEl);
-        resultDiv.appendChild(messageEl);
+        resultDiv.appendChild(successMsg);
       })
       .catch((err) => {
         console.error(err);
-
-        // ✅ BETTER ERROR DISPLAY
         errorDiv.textContent = err.message;
       });
   }
