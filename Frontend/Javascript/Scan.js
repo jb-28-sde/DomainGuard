@@ -1,41 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const domainInput = document.getElementById("domain");
-  const scanBtn = document.getElementById("scanBtn");
+function scanDomain() {
+  const domain = document.getElementById("domainInput").value;
 
-  // Enter key support
-  domainInput.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      validate();
-    }
-  });
-
-  // Button click
-  scanBtn.addEventListener("click", validate);
-});
-
-function isValidDomain(domain) {
-  const regex = /^(?!:\/\/)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
-  return regex.test(domain);
-}
-
-function validate() {
-  const domain = document.getElementById("domain").value.trim();
-  const error = document.getElementById("error");
-
-  if (domain === "") {
-    error.textContent = "⚠️ Domain cannot be empty";
-    return false;
+  if (!domain) {
+    alert("Please enter a domain");
+    return;
   }
 
-  if (!isValidDomain(domain)) {
-    error.textContent = "❌ Please enter a valid domain (example.com)";
-    return false;
-  }
+  // API CALL
+  fetch(`http://localhost:5000/api/scan?domain=${domain}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("API Response:", data);
 
-  // Clear error
-  error.textContent = "";
-
-  console.log("Valid domain:", domain);
-
-  return true;
+      // Display result nicely
+      document.getElementById("result").innerHTML = `
+        <h3>Scan Result:</h3>
+        <pre>${JSON.stringify(data, null, 2)}</pre>
+      `;
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      document.getElementById("result").innerText = "Error fetching data";
+    });
 }

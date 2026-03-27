@@ -5,51 +5,40 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Background */
 body {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(1, 162, 255, 0.1);
+  background: linear-gradient(135deg, #74ebd5, #9face6);
 }
 
 /* Card */
 .container {
-  background: #fff;
-  padding: 50px;
-  border-radius: 12px;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
   width: 350px;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Title */
 h2 {
   margin-bottom: 20px;
   color: #333;
-  font-weight: 600;
 }
 
 /* Input */
 input {
   width: 100%;
-  padding: 10px;
-  border: 1.5px solid #ccc;
+  padding: 12px;
   border-radius: 8px;
-  font-size: 15px;
-  outline: none;
-  transition: 0.3s;
-}
-
-input:focus {
-  border-color: #4facfe;
-  box-shadow: 0 0 5px rgba(79, 172, 254, 0.4);
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
 }
 
 /* Button */
 button {
-  margin-top: 15px;
   width: 100%;
   padding: 12px;
   border: none;
@@ -57,18 +46,21 @@ button {
   background: #4facfe;
   color: white;
   font-size: 16px;
-  font-weight: 500;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 button:hover {
   background: #2f8cff;
 }
 
-/* Error */
-.error {
-  margin-top: 10px;
+/* Result */
+#result {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #f5f7fa;
   font-size: 14px;
-  color: red;
+  text-align: left;
+  max-height: 200px;
+  overflow-y: auto;
 }
