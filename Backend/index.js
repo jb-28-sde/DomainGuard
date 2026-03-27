@@ -3,7 +3,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/database.js";
 import scanRoutes from "./Routes/ScanRoutes.js";
-import generateVariants from "./Domain-analysis/DomainvariantGenerator.js";
 dotenv.config();
 const app = express();
 
