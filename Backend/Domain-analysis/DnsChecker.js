@@ -1,12 +1,14 @@
+// DnsChecker.js
+
 import dns from "dns/promises";
-@parameters {domain: string}
-@returns {Boolean}
-export const checkDns = async (domain) => {
-    try {
-        const addresses=await dns.resolve(domain);
-        return addresses.length > 0;
-    } catch (error) {
-        console.log("DNS check failed:",error.message);
-        return false;
-    }
-};
+
+// Function to check if a domain exists
+export async function checkDNS(domain) {
+  try {
+    const addresses = await dns.resolve(domain, "A"); // IPv4 check
+    return addresses.length > 0; // Returns true if at least one IP found
+  } catch (error) {
+    return false; // Returns false if domain is invalid or DNS lookup fails
+  }
+}
+
