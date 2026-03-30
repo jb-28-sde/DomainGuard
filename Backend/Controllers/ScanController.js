@@ -1,6 +1,7 @@
 import Scan from "../Models/ScanModel.js";
 import { checkDNS } from "../Domain-analysis/DnsChecker.js";
 import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
+import { calculateSimilarityForVariants } from "../Domain-analysis/SimilarityCalculator.js";
 
 export const createScan = (req, res) => {
   const inputDomain = req.body.domain;
@@ -43,10 +44,13 @@ export const generateDomainVariants = (req, res) => {
 
   const variants = generateVariants(domain);
 
+  //calculate similarity for each variant
+  const variantSimilarity = calculateSimilarityForVariants(domain,variants)
+
   res.json({
     original: domain,
     total: variants.length,
-    variants,
+    variantSimilarity
   });
 };
 // it handle the request coming from frontend(API CALL)
