@@ -6,7 +6,6 @@ const scanSchema = new mongoose.Schema(
     original_domain: {
       type: String,
       required: [true, "Original domain is required"],
-      unique: true,
       trim: true,
       lowercase: true,
     },
