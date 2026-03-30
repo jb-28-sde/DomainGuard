@@ -1,4 +1,5 @@
 import Scan from "../Models/ScanModel.js";
+import { checkDNS } from "../Domain-analysis/DnsChecker.js";
 import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
 import { calculateSimilarityForVariants } from "../Domain-analysis/SimilarityCalculator.js";
 
@@ -52,3 +53,20 @@ export const generateDomainVariants = (req, res) => {
     variantSimilarity
   });
 };
+// it handle the request coming from frontend(API CALL)
+export const checkDomainDNS = async (req, res) => {
+  try {
+     const { domain } = req.body;
+     if(!domain) {
+      return res.status(400).json({ message: "Domain is required" });
+     }
+     const result = await checkDNS(domain);
+     res.json({
+      domain,
+      isValid : result,
+     });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error checking DNS" });
+  }
+}
