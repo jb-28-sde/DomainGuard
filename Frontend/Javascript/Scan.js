@@ -1,57 +1,69 @@
-document.getElementById("scanBtn").addEventListener("click", async () => {
-    const domainInput = document.getElementById("domain");
-    const errorEl = document.getElementById("error");
-    const resultEl = document.getElementById("result");
+document.addEventListener("DOMContentLoaded", () => {
+  const domainInput = document.getElementById("domainInput");
+  const scanBtn = document.getElementById("scanBtn");
+  const resultDiv = document.getElementById("result");
+  const errorDiv = document.getElementById("error");
 
+  scanBtn.addEventListener("click", handleScan);
+
+  async function handleScan() {
     const domain = domainInput.value.trim();
 
-    errorEl.textContent = "";
-    resultEl.innerHTML = "";
+    // Clear previous
+    errorDiv.textContent = "";
+    resultDiv.innerHTML = "";
 
+    // ✅ Validation
     if (!domain) {
-        errorEl.textContent = "Please enter a domain";
-        return;
+      errorDiv.textContent = "Please enter a domain";
+      return;
     }
+
+    if (!domain.includes(".")) {
+      errorDiv.textContent = "Enter a valid domain (e.g. google.com)";
+      return;
+    }
+
+    // ✅ Loading state
+    resultDiv.innerHTML = "<p>Scanning...</p>";
 
     try {
-        
-        const response = await fetch("http://localhost:5000/api/scan", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ domain })
-        });
+      const response = await fetch("http://localhost:8080/api/fullscan", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ domain })
+      });
 
-        const data = await response.json();
+      const data = await response.json();
 
-        console.log("API Response:", data);
+      console.log("API Response:", data); // mentor requirement ✅
 
-        const original = data.original;
-        const variants = data.scanned;
+      resultDiv.innerHTML = "<h3>Scan Results</h3><hr/>";
 
-        resultEl.innerHTML = `
-            <p><strong>Domain:</strong> ${original}</p>
-            <p><strong>Variants Found:</strong> ${variants.length}</p>
-            <hr/>
+      // ✅ Display structured results
+      data.forEach((item) => {
+        const div = document.createElement("div");
+
+        div.style.padding = "10px";
+        div.style.borderBottom = "1px solid #ccc";
+
+        div.innerHTML = `
+          <p><strong>Domain:</strong> ${item.domain}</p>
+          <p><strong>Similarity:</strong> ${item.similarity}</p>
+          <p><strong>DNS Status:</strong> ${
+            item.dns ? "✅ Active" : "❌ Inactive"
+          }</p>
         `;
 
-        variants.forEach(item => {
-            const div = document.createElement("div");
+        resultDiv.appendChild(div);
+      });
 
-            div.innerHTML = `
-                <p>
-                    <strong>${item.domain}</strong> |
-                    Exists: ${item.exists ? "✅ Yes" : "❌ No"} |
-                    Similarity: ${item.similarity}%
-                </p>
-            `;
-
-            resultEl.appendChild(div);
-        });
-
-    } catch (error) {
-        console.error(error);
-        errorEl.textContent = "Error connecting to server";
+    } catch (err) {
+      console.error(err);
+      errorDiv.textContent = "Error connecting to server";
+      resultDiv.innerHTML = "";
     }
+  }
 });

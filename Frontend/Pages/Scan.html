@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Domain Scanner</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Correct CSS path -->
-  <link rel="stylesheet" href="../Stylesheet/Scan.css">
+  <link rel="stylesheet" href="../Stylesheet/Scan.css" />
 </head>
 <body>
 
   <div class="container">
     <h2>Domain Scanner</h2>
 
-    <label for="domain">Enter Domain:</label>
-    <input 
-      type="text" 
-      id="domain" 
-      placeholder="example.com" 
-      required
-    />
+    <input type="text" id="domainInput" placeholder="Enter domain (e.g. google.com)" />
 
     <button id="scanBtn">Scan</button>
 
-    <!-- Error Message -->
-    <p id="error" class="error"></p>
+    <!-- ✅ Error Message -->
+    <p id="error" class="error" style="color:red; margin-top:10px;"></p>
 
-    <!-- ✅ Result Display (Added for your task) -->
-    <div id="result"></div>
+    <!-- ✅ Result Display -->
+    <div id="result" style="margin-top:15px;"></div>
   </div>
 
-  <!-- Correct JS path -->
-  <script src="../Javascript/Scan.js"></script>
+  <!-- IMPORTANT -->
+  <script type="module" src="../Javascript/Scan.js"></script>
+
 </body>
 </html>

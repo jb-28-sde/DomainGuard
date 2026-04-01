@@ -1,9 +1,9 @@
 
 import express from "express";
-import { createScan } from "../Controllers/ScanController.js";
+import {FullScan} from "../Controllers/ScanController.js";
 
 const router = express.Router();
 
-router.post("/scan", createScan);
+router.post("/fullscan", FullScan);
 export default router;
 
