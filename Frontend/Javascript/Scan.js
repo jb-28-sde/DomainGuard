@@ -1,5 +1,3 @@
-import { BASE_URL } from "./config.js";
-
 document.addEventListener("DOMContentLoaded", () => {
   const domainInput = document.getElementById("domainInput");
   const scanBtn = document.getElementById("scanBtn");
@@ -8,46 +6,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
   scanBtn.addEventListener("click", handleScan);
 
-  function handleScan() {
+  async function handleScan() {
     const domain = domainInput.value.trim();
 
+    // Clear previous
     errorDiv.textContent = "";
-    resultDiv.textContent = "";
+    resultDiv.innerHTML = "";
 
+    // ✅ Validation
     if (!domain) {
-      errorDiv.textContent = "Domain cannot be empty";
+      errorDiv.textContent = "Please enter a domain";
       return;
     }
 
-    fetch(`${BASE_URL}/api/scan`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ domain })
-    })
-      .then(async (res) => {
-        const data = await res.json();
+    if (!domain.includes(".")) {
+      errorDiv.textContent = "Enter a valid domain (e.g. google.com)";
+      return;
+    }
 
-        if (!res.ok) {
-          throw new Error(data.message || "Server error");
-        }
+    // ✅ Loading state
+    resultDiv.innerHTML = "<p>Scanning...</p>";
 
-        return data;
-      })
-      .then(() => {
-        // ✅ EXACT TL REQUIREMENT
-        const successMsg = document.createElement("p");
-        successMsg.textContent = "Saved in database.";
-
-        successMsg.style.color = "green";
-        successMsg.style.fontWeight = "600";
-
-        resultDiv.appendChild(successMsg);
-      })
-      .catch((err) => {
-        console.error(err);
-        errorDiv.textContent = err.message;
+    try {
+      const response = await fetch("http://localhost:8080/api/fullscan", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ domain })
       });
+
+      const data = await response.json();
+
+      console.log("API Response:", data);
+
+      resultDiv.innerHTML = "<h3>Scan Results</h3><hr/>";
+
+      // ✅ Display structured results
+      data.forEach((item) => {
+        const div = document.createElement("div");
+
+        div.style.padding = "10px";
+        div.style.borderBottom = "1px solid #ccc";
+
+        let color = "green";
+        if (item.similarity > 85) color = "red";
+        else if (item.similarity > 70) color = "orange";
+
+        div.innerHTML = `
+          <p><strong>Domain:</strong> ${item.domain}</p>
+          <p><strong>Similarity:</strong> <span style="color:${color}">${item.similarity}%</span></p>
+          <p><strong>DNS Status:</strong> ${
+            item.dns ? "✅ Active" : "❌ Inactive"
+          }</p>
+        `;
+
+        resultDiv.appendChild(div);
+      });
+
+    } catch (err) {
+      console.error(err);
+      errorDiv.textContent = "Error connecting to server";
+      resultDiv.innerHTML = "";
+    }
   }
 });
