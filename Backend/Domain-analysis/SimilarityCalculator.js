@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-module.exports = function(a, b) {
-    if (!a || !b) return 0;
-
-    let matches = 0;
-    const len = Math.min(a.length, b.length);
-
-    for (let i = 0; i < len; i++) {
-        if (a[i] === b[i]) matches++;
-    }
-
-    return Math.round((matches / Math.max(a.length, b.length)) * 100);
-};
-=======
 // Input validation
 function validateInput(str) {
   return typeof str === "string" && str.trim().length > 0;
@@ -73,4 +59,3 @@ export function calculateSimilarityForVariants(
     .filter((v) => v.similarity >= threshold)
     .sort((a, b) => b.similarity - a.similarity);
 }
->>>>>>> 3ea892863babac3d62b59a65e5bc3eacf2d8cbbb

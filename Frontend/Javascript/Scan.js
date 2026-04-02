@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const data = await response.json();
 
-      console.log("API Response:", data); // mentor requirement ✅
+      console.log("API Response:", data);
 
       resultDiv.innerHTML = "<h3>Scan Results</h3><hr/>";
 
@@ -49,9 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
         div.style.padding = "10px";
         div.style.borderBottom = "1px solid #ccc";
 
+        let color = "green";
+        if (item.similarity > 85) color = "red";
+        else if (item.similarity > 70) color = "orange";
+
         div.innerHTML = `
           <p><strong>Domain:</strong> ${item.domain}</p>
-          <p><strong>Similarity:</strong> ${item.similarity}</p>
+          <p><strong>Similarity:</strong> <span style="color:${color}">${item.similarity}%</span></p>
           <p><strong>DNS Status:</strong> ${
             item.dns ? "✅ Active" : "❌ Inactive"
           }</p>

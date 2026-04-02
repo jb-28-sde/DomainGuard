@@ -2,7 +2,6 @@ import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
 import Scan from "../Models/ScanModel.js";
 import { checkDNS } from "../Domain-analysis/DnsChecker.js";
 import { calculateSimilarityForVariants } from "../Domain-analysis/SimilarityCalculator.js";
-
 export const FullScan = async (req, res) => {
   try {
     const { domain: inputDomain } = req.body;
@@ -36,14 +35,14 @@ export const FullScan = async (req, res) => {
           similarity: item.similarity,
           dns,
         };
-      })
+      }),
     );
 
     // Save original domain in MongoDB
     const existing = await Scan.findOne({ original_domain: domain });
     if (existing)
       return res.json({ message: "Domain already scanned", domain });
-
+    
     const newScan = new Scan({
       original_domain: domain,
     });
