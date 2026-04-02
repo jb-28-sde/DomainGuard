@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Domain Scanner</title>
   <link rel="stylesheet" href="../Stylesheet/Scan.css" />
 </head>
+
 <body>
 
   <div class="container">
     <h2>Domain Scanner</h2>
 
-    <input type="text" id="domainInput" placeholder="Enter domain (e.g. google.com)" />
+    <form id="scanForm">
+      <label for="domainInput">Domain</label>
+      <input type="text" id="domainInput" placeholder="Enter domain (e.g. example.com)" />
 
-    <button id="scanBtn">Scan</button>
+      <button type="submit" id="scanBtn">Scan</button>
+    </form>
 
-    <!-- ✅ Error Message -->
-    <p id="error" class="error" style="color:red; margin-top:10px;"></p>
-
-    <!-- ✅ Result Display -->
-    <div id="result" style="margin-top:15px;"></div>
+    <div id="error" class="error"></div>
+    <div id="result" class="result"></div>
   </div>
 
-  <!-- IMPORTANT -->
   <script type="module" src="../Javascript/Scan.js"></script>
 
 </body>
+
 </html>
