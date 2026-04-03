@@ -26,3 +26,18 @@ export default function generateVariants(domain) {
 
   return Array.from(variants).slice(0, 50);
 }
+const phishingKeywords = ["login", "secure", "support", "verify"];
+export const generatePhishingVariants = (domain) => {
+  if (!domain || !domain.includes(".")) {
+    return [];
+  }
+  const [name, extension] = domain.split(".");
+  const variants = new Set();
+  phishingKeywords.forEach((keyword) => {
+    variants.add(`${name}${keyword}.${extension}`);
+    variants.add(`${keyword}${name}.${extension}`);
+    variants.add(`${name}-${keyword}.${extension}`);
+    variants.add(`${keyword}_${name}.${extension}`);
+  });
+  return Array.from(variants);
+}
