@@ -1,4 +1,5 @@
 import { BASE_URL } from "./config.js";
+import { processDomainData } from "./processDomainData.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const domainInput = document.getElementById("domainInput");
@@ -67,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Sort variants by similarity descending
-        const sorted = dataArray.sort((a, b) => b.similarity - a.similarity);
+        const { all: sorted, highSimilarity, risky } = processDomainData(dataArray);
 
         // Main stats for top variant
         const topVariant = sorted[0];
