@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const simClass = getSimilarityClass(v.similarity);
           const ageClass = getAgeRiskClass(v.ageRisk);
           const privacyBadge =
-            v.privacyProtected === true || v.privacyProtected === "true"
+            v.isPrivacyProtected === true || v.isPrivacyProtected === "true"
               ? `<span class="badge-protected">Protected</span>`
               : "";
 
@@ -113,8 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <td>${v.similarity ?? "N/A"}%</td>
               <td>${v.dns ? "Active" : "Fail"}</td>
               <td>${v.registrar ?? "N/A"}</td>
-              <td>${v.createdDate ?? "N/A"}</td>
-              <td>${v.ageDays ?? "N/A"}</td>
+              <td>${v.createdAt ?? "N/A"}</td>
+              <td>${v.ageInDays ?? "N/A"}</td>
               <td class="${ageClass}">${v.ageRisk ?? "N/A"}</td>
               <td>${privacyBadge}</td>
             </tr>
