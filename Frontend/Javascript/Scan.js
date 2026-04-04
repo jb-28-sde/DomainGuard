@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resultDiv.innerHTML = "<p>Scanning, please wait...</p>";
 
     // API Call
-    fetch(`${BASE_URL}/api/Fullscan`, {
+    fetch(`${BASE_URL}/api/fullscan`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ domain }),
@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((dataArray) => {
         console.log("API Response:", dataArray);
 
-        // Already scanned / single result message
         if (dataArray.message) {
           resultDiv.innerHTML = `
             <div class="result-card info">
@@ -61,83 +60,103 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        // Empty response
         if (!Array.isArray(dataArray) || dataArray.length === 0) {
           resultDiv.innerHTML = "<p>No scan data returned</p>";
           return;
         }
 
-        // Sort variants by similarity descending
         const { all: sorted, highSimilarity, risky } = processDomainData(dataArray);
 
-        // Main stats for top variant
         const topVariant = sorted[0];
         const similarity = topVariant?.similarity ?? "N/A";
         const hasActiveDns = sorted.some((item) => item.dns);
         const dnsStatus = hasActiveDns ? "Active" : "Fail";
         const dnsClass = hasActiveDns ? "success" : "fail";
 
-        // User-friendly status
         let statusText = "";
         let statusClass = "";
         let statusMessage = "";
 
-        if (hasActiveDns && similarity > 85) {
+        if (hasActiveDns && similarity > 89) {
           statusText = "Safe";
           statusClass = "success";
           statusMessage = "This domain looks genuine and safe to use.";
         } else {
           statusText = "Risky";
           statusClass = "fail";
-          statusMessage =
-            "Similar domains found. Please be cautious before using it.";
+          statusMessage = "Similar domains found. Please be cautious before using it.";
         }
 
-        // Render full UI
+        function getSimilarityClass(sim) {
+          if (sim >= 95) return "highlight-strong";
+          if (sim >= 90) return "highlight-light";
+          return "";
+        }
+
+        function getAgeRiskClass(ageRisk) {
+          if (ageRisk === "HIGH") return "age-high";
+          if (ageRisk === "MEDIUM") return "age-medium";
+          return "";
+        }
+
+        const rows = sorted.map((v) => {
+          const simClass = getSimilarityClass(v.similarity);
+          const ageClass = getAgeRiskClass(v.ageRisk);
+          const privacyBadge =
+            v.privacyProtected === true || v.privacyProtected === "true"
+              ? `<span class="badge-protected">Protected</span>`
+              : "";
+
+          return `
+            <tr class="${simClass}">
+              <td>${v.domain ?? "N/A"}</td>
+              <td>${v.similarity ?? "N/A"}%</td>
+              <td>${v.dns ? "Active" : "Fail"}</td>
+              <td>${v.registrar ?? "N/A"}</td>
+              <td>${v.createdDate ?? "N/A"}</td>
+              <td>${v.ageDays ?? "N/A"}</td>
+              <td class="${ageClass}">${v.ageRisk ?? "N/A"}</td>
+              <td>${privacyBadge}</td>
+            </tr>
+          `;
+        }).join("");
+
         resultDiv.innerHTML = `
           <div class="result-card">
             <h3>Scan Result</h3>
-
             <p><strong>Domain:</strong> ${domain}</p>
-
             <p style="margin-top:8px;">
               <strong>Status:</strong>
               <span class="badge ${statusClass}">${statusText}</span>
             </p>
-
             <p style="margin-top:8px;">${statusMessage}</p>
-
             <hr style="margin:12px 0;">
-
             <div class="stats">
               <span class="badge success">Top Similarity: ${similarity}%</span>
               <span class="badge ${dnsClass}">DNS: ${dnsStatus}</span>
+              <span class="badge">Total Variants: ${sorted.length}</span>
+              <span class="badge">High Similarity: ${highSimilarity.length}</span>
+              <span class="badge">Risky: ${risky.length}</span>
             </div>
-
-            <p><strong>Total Variants Found:</strong> ${sorted.length}</p>
-
-            <table>
-              <thead>
-                <tr>
-                  <th>Domain</th>
-                  <th>Similarity</th>
-                  <th>DNS</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${sorted
-                  .map(
-                    (v) => `
+            <div style="margin-top:16px; overflow-x:auto;">
+              <table class="scan-table">
+                <thead>
                   <tr>
-                    <td>${v.domain}</td>
-                    <td>${v.similarity}%</td>
-                    <td>${v.dns ? "Active" : "Fail"}</td>
+                    <th>Domain</th>
+                    <th>Similarity</th>
+                    <th>DNS Status</th>
+                    <th>Registrar</th>
+                    <th>Created Date</th>
+                    <th>Age (Days)</th>
+                    <th>Age Risk</th>
+                    <th>Privacy Protected</th>
                   </tr>
-                `
-                  )
-                  .join("")}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  ${rows}
+                </tbody>
+              </table>
+            </div>
           </div>
         `;
       })

@@ -172,3 +172,62 @@ tbody tr:hover {
   background: #4facfe;
   border-radius: 10px;
 }
+
+.highlight-strong {
+  background-color: #fee2e2 !important;
+}
+
+.highlight-light {
+  background-color: #fef9c3 !important;
+}
+
+
+.age-high {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.age-medium {
+  color: #d97706;
+  font-weight: bold;
+}
+
+
+.badge-protected {
+  background-color: #16a34a;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+.scan-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.scan-table th {
+  background-color: #1e293b;
+  color: #fff;
+  padding: 10px 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.scan-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+.result-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 16px;
+}
