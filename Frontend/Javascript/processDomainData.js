@@ -14,6 +14,10 @@ export const processDomainData = (data) => {
   let cleaned = filtered.map(item => {
     let newItem = {};
     for (let key in item) {
+      if (key === "createdAt" && item[key]) {
+    newItem[key] = new Date(item[key]).toLocaleDateString("en-GB");
+  }
+  else
       newItem[key] = item[key] === null ? "N/A" : item[key];
     }
     return newItem;
