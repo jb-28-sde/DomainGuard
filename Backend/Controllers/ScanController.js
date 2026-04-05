@@ -37,6 +37,9 @@ export const FullScan = async (req, res) => {
     //  MAIN PIPELINE
     const finalResults = await Promise.all(
       similarityData.map(async (item) => {
+         const { tld, isSuspicious } = checkSuspiciousTLD(item.variant);
+         const tldRisk = isSuspicious ? "HIGH" : "LOW";
+
         const dns = await checkDNS(item.variant);
 
         let registrar = null;
@@ -74,6 +77,8 @@ export const FullScan = async (req, res) => {
           ageRisk,
 
           isPrivacyProtected,
+          tld,
+          tldRisk
         };
       }),
     );
