@@ -5,6 +5,10 @@ import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
 import { generatePhishingVariants } from "../Domain-analysis/DomainvariantGenerator.js";
 import { checkSuspiciousTLD } from "../Domain-analysis/TldChecker.js";
 import { calculateSimilarityForVariants } from "../Domain-analysis/SimilarityCalculator.js";
+import { getWhoisData } from "../Domain-analysis/whoisService.js";
+import { analyzeDomainAge } from "../Domain-analysis/domainAgeService.js";
+import { checkPrivacy } from "../Domain-analysis/privacyCheckService.js";
+
 export const FullScan = async (req, res) => {
   try {
     const { domain: inputDomain } = req.body;
@@ -13,45 +17,77 @@ export const FullScan = async (req, res) => {
       return res.status(400).json({ message: "Domain is required" });
     }
 
-    // Domain clean
-    let domain = inputDomain.toLowerCase();
-    domain = domain.replace("https://", "");
-    domain = domain.replace("http://", "");
-    domain = domain.replace("www.", "");
+    //  Clean domain
+    let domain = inputDomain
+      .toLowerCase()
+      .replace("https://", "")
+      .replace("http://", "")
+      .replace("www.", "");
 
     if (domain.includes("/")) {
       domain = domain.split("/")[0];
     }
 
-    // Generate variants
+    //  Generate variants
     const variants = generateVariants(domain);
 
-    // Calculate similarity
+    // Similarity calculation
     const similarityData = calculateSimilarityForVariants(domain, variants);
 
-    // DNS check for each variant
+    //  MAIN PIPELINE
     const finalResults = await Promise.all(
       similarityData.map(async (item) => {
         const dns = await checkDNS(item.variant);
+
+        let registrar = null;
+        let createdAt = null;
+        let ageInDays = null;
+        let ageRisk = null;
+        let isPrivacyProtected = null;
+
+        // Only if domain exists
+        if (dns) {
+          // WHOIS
+          const whoisData = await getWhoisData(item.variant);
+
+          registrar = whoisData.registrar;
+          createdAt = whoisData.creationDate;
+
+          // Age check
+          const ageData = analyzeDomainAge(createdAt);
+          ageInDays = ageData.ageInDays;
+          ageRisk = ageData.ageRisk;
+
+          // Privacy check
+          isPrivacyProtected = checkPrivacy(whoisData.owner);
+        }
+
         return {
           domain: item.variant,
           similarity: item.similarity,
           dns,
+
+          registrar,
+          createdAt,
+
+          ageInDays,
+          ageRisk,
+
+          isPrivacyProtected,
         };
       }),
     );
 
-    // Save original domain in MongoDB
+    // Save original domain 
     const existing = await Scan.findOne({ original_domain: domain });
-    if (existing)
-      return res.json({ message: "Domain already scanned", domain });
-    
-    const newScan = new Scan({
-      original_domain: domain,
-    });
-    await newScan.save();
+    if (!existing) {
+      const newScan = new Scan({
+        original_domain: domain,
+      });
+      await newScan.save();
+    }
 
-    // final response
+    // Final response
     res.json(finalResults);
   } catch (error) {
     console.log(error);
