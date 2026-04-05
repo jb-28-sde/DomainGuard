@@ -55,6 +55,14 @@ const scanSchema = new mongoose.Schema(
       type: Boolean,
       default: null,
     },
+       tld: {
+      type: String,
+      default: null,
+    },
+    tldRisk: {
+      type: String,
+      default: null,
+    },
   },
   {
     timestamps: true,
