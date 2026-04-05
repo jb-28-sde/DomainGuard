@@ -1,7 +1,7 @@
 import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
 import Scan from "../Models/ScanModel.js";
 import { checkDNS } from "../Domain-analysis/DnsChecker.js";
-import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
+
 import { generatePhishingVariants } from "../Domain-analysis/DomainvariantGenerator.js";
 import { checkSuspiciousTLD } from "../Domain-analysis/TldChecker.js";
 import { calculateSimilarityForVariants } from "../Domain-analysis/SimilarityCalculator.js";
