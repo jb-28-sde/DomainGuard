@@ -15,5 +15,5 @@ app.use("/api", scanRoutes);
 connectDB();
 
 //server start
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => console.log(`Server connected on ${PORT}`));

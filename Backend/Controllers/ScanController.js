@@ -1,6 +1,9 @@
 import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
 import Scan from "../Models/ScanModel.js";
 import { checkDNS } from "../Domain-analysis/DnsChecker.js";
+
+import { generatePhishingVariants } from "../Domain-analysis/DomainvariantGenerator.js";
+import { checkSuspiciousTLD } from "../Domain-analysis/TldChecker.js";
 import { calculateSimilarityForVariants } from "../Domain-analysis/SimilarityCalculator.js";
 import { getWhoisData } from "../Domain-analysis/whoisService.js";
 import { analyzeDomainAge } from "../Domain-analysis/domainAgeService.js";
@@ -90,4 +93,37 @@ export const FullScan = async (req, res) => {
     console.log(error);
     res.status(500).json({ message: "Error in full scan pipeline" });
   }
+}
+//controller to generate phishing-style domain variants
+export const generatePhishingDomains = (req, res) => {
+  const { domain } = req.body;
+  //check if domain is provided  
+  if (!domain) {
+    return res.status(400).json({ message: "Domain is required" });
+  }
+  const variants = generatePhishingVariants(domain);
+  res.json({
+    original: domain,
+    total: variants.length,
+    variants,
+  });
+};
+// controller to check suspicious TLD
+export const checkTLD = (req, res) => {
+  const { domain } = req.body;
+
+  // validate input
+  if (!domain) {
+    return res.status(400).json({ message: "Domain is required" });
+  }
+
+  // call TLD checker logic
+  const result = checkSuspiciousTLD(domain);
+
+  // send response
+  res.json({
+    domain,
+    tld: result.tld,
+    isSuspicious: result.isSuspicious,
+  });
 };
