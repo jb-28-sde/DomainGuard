@@ -55,13 +55,21 @@ const scanSchema = new mongoose.Schema(
       type: Boolean,
       default: null,
     },
-       tld: {
+    tld: {
       type: String,
       default: null,
     },
     tldRisk: {
       type: String,
       default: null,
+    },
+    impersonation_score: {
+      type: Number,
+    },
+
+    risk_level: {
+      type: String,
+      enum: ["Low", "Medium", "High", "Critical"],
     },
   },
   {

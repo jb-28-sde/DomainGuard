@@ -1,13 +1,26 @@
-import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
-import Scan from "../Models/ScanModel.js";
-import { checkDNS } from "../Domain-analysis/DnsChecker.js";
+import generateVariants, {
+  generatePhishingVariants,
+} from "../Domain-analysis/DomainvariantGenerator.js";
 
-import { generatePhishingVariants } from "../Domain-analysis/DomainvariantGenerator.js";
-import { checkSuspiciousTLD } from "../Domain-analysis/TldChecker.js";
+import Scan from "../Models/ScanModel.js";
+import DnsRecord from "../Models/dnsRecordModel.js";
+
+import { checkDNS } from "../Domain-analysis/DnsChecker.js";
 import { calculateSimilarityForVariants } from "../Domain-analysis/SimilarityCalculator.js";
 import { getWhoisData } from "../Domain-analysis/whoisService.js";
 import { analyzeDomainAge } from "../Domain-analysis/domainAgeService.js";
 import { checkPrivacy } from "../Domain-analysis/privacyCheckService.js";
+import { checkSuspiciousTLD } from "../Domain-analysis/TldChecker.js";
+
+import {
+  getDNSRecords,
+  detectSharedInfrastructure,
+} from "../Domain-analysis/dnsInfrastructure.js";
+
+import {
+  calculateRiskScore,
+  getRiskLevel,
+} from "../Domain-analysis/riskScoring.js";
 
 export const FullScan = async (req, res) => {
   try {
@@ -17,7 +30,7 @@ export const FullScan = async (req, res) => {
       return res.status(400).json({ message: "Domain is required" });
     }
 
-    //  Clean domain
+    // Clean domain
     let domain = inputDomain
       .toLowerCase()
       .replace("https://", "")
@@ -28,17 +41,16 @@ export const FullScan = async (req, res) => {
       domain = domain.split("/")[0];
     }
 
-    //  Generate variants
+    // Generate variants
     const variants = generateVariants(domain);
 
     // Similarity calculation
     const similarityData = calculateSimilarityForVariants(domain, variants);
 
-    //  MAIN PIPELINE
     const finalResults = await Promise.all(
       similarityData.map(async (item) => {
-         const { tld, isSuspicious } = checkSuspiciousTLD(item.variant);
-         const tldRisk = isSuspicious ? "HIGH" : "LOW";
+        const { tld, isSuspicious } = checkSuspiciousTLD(item.variant);
+        const tldRisk = isSuspicious ? "HIGH" : "LOW";
 
         const dns = await checkDNS(item.variant);
 
@@ -48,22 +60,58 @@ export const FullScan = async (req, res) => {
         let ageRisk = null;
         let isPrivacyProtected = null;
 
-        // Only if domain exists
+        let hosting_provider = null;
+        let infraRisk = null;
+        let reason = null;
+
         if (dns) {
           // WHOIS
           const whoisData = await getWhoisData(item.variant);
 
-          registrar = whoisData.registrar;
-          createdAt = whoisData.creationDate;
+          registrar = whoisData?.registrar || null;
+          createdAt = whoisData?.creationDate || null;
 
-          // Age check
+          // Domain Age
           const ageData = analyzeDomainAge(createdAt);
           ageInDays = ageData.ageInDays;
           ageRisk = ageData.ageRisk;
 
-          // Privacy check
-          isPrivacyProtected = checkPrivacy(whoisData.owner);
+          // Privacy
+          isPrivacyProtected = checkPrivacy(whoisData?.owner);
+
+          // DNS Records
+          const dnsData = await getDNSRecords(item.variant);
+
+          // Save DNS records
+          await DnsRecord.create({
+            domain: item.variant,
+            A_record: dnsData.A,
+            AAAA_record: dnsData.AAAA,
+            MX_record: dnsData.MX,
+            NS_record: dnsData.NS,
+            scanned_at: new Date(),
+          });
+
+          // Infrastructure Detection
+          const infra = await detectSharedInfrastructure(item.variant, dnsData);
+
+          hosting_provider = infra.hosting_provider;
+          infraRisk = infra.risk_level;
+          reason = infra.reason;
         }
+
+        // Risk Scoring
+        const score = calculateRiskScore({
+          similarity: item.similarity,
+          dns,
+          isPrivacyProtected,
+          ageInDays,
+          tldRisk,
+          infraRisk,
+        });
+
+        // Risk Level
+        const riskLevel = getRiskLevel(score);
 
         return {
           domain: item.variant,
@@ -77,19 +125,26 @@ export const FullScan = async (req, res) => {
           ageRisk,
 
           isPrivacyProtected,
+
           tld,
-          tldRisk
+          tldRisk,
+
+          hosting_provider,
+          reason,
+
+          impersonation_score: score,
+          risk_level: riskLevel,
         };
       }),
     );
 
-    // Save original domain 
+    // Save original domain
     const existing = await Scan.findOne({ original_domain: domain });
+
     if (!existing) {
-      const newScan = new Scan({
+      await Scan.create({
         original_domain: domain,
       });
-      await newScan.save();
     }
 
     // Final response
@@ -98,37 +153,4 @@ export const FullScan = async (req, res) => {
     console.log(error);
     res.status(500).json({ message: "Error in full scan pipeline" });
   }
-}
-//controller to generate phishing-style domain variants
-export const generatePhishingDomains = (req, res) => {
-  const { domain } = req.body;
-  //check if domain is provided  
-  if (!domain) {
-    return res.status(400).json({ message: "Domain is required" });
-  }
-  const variants = generatePhishingVariants(domain);
-  res.json({
-    original: domain,
-    total: variants.length,
-    variants,
-  });
-};
-// controller to check suspicious TLD
-export const checkTLD = (req, res) => {
-  const { domain } = req.body;
-
-  // validate input
-  if (!domain) {
-    return res.status(400).json({ message: "Domain is required" });
-  }
-
-  // call TLD checker logic
-  const result = checkSuspiciousTLD(domain);
-
-  // send response
-  res.json({
-    domain,
-    tld: result.tld,
-    isSuspicious: result.isSuspicious,
-  });
 };
