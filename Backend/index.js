@@ -1,3 +1,4 @@
+import scanQueue from "./queue/scanQueue.js";
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -24,7 +25,7 @@ app.get("/", (req, res) => {
 });
 
 
-// 🔥 Dummy Scanner Function (replace with your real logic)
+// 🔥 Dummy Scanner Function (USED IN NEXT MILESTONE ONLY)
 async function runYourScanner(domain) {
   return [
     {
@@ -37,7 +38,6 @@ async function runYourScanner(domain) {
       ageRisk: "LOW",
       isPrivacyProtected: false,
 
-      // ✅ FIX
       tld: "." + domain.split(".").pop(),
 
       tldRisk: "LOW",
@@ -60,7 +60,7 @@ async function runYourScanner(domain) {
 }
 
 
-// ✅ 🔹 FULL SCAN API
+// 🚀 ✅ MILESTONE 27: QUEUE-BASED SCAN API
 app.post("/api/fullscan", async (req, res) => {
   try {
     const { domain } = req.body;
@@ -69,25 +69,22 @@ app.post("/api/fullscan", async (req, res) => {
       return res.status(400).json({ message: "Domain required" });
     }
 
-    // 🔥 run scan
-    const results = await runYourScanner(domain);
+    // 🔥 Add job to queue
+    await scanQueue.add("scan-job", { domain });
 
-    // ✅ SAVE FULL SCAN (IMPORTANT)
-    await Scan.create({
-      brandName: domain,
-      totalDomains: results.length,
-      results: results,
+    // ⚡ Instant response
+    res.json({
+      message: "Scan started 🚀",
     });
 
-    res.json(results);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Scan failed" });
+    res.status(500).json({ message: "Error starting scan" });
   }
 });
 
 
-// ✅ 🔹 GET ALL HISTORY
+// 📊 GET ALL HISTORY
 app.get("/api/history", async (req, res) => {
   try {
     const data = await Scan.find().sort({ createdAt: -1 });
@@ -98,7 +95,7 @@ app.get("/api/history", async (req, res) => {
 });
 
 
-// ✅ 🔹 GET SINGLE SCAN
+// 🔍 GET SINGLE SCAN
 app.get("/api/history/:id", async (req, res) => {
   try {
     const data = await Scan.findById(req.params.id);
@@ -111,6 +108,7 @@ app.get("/api/history/:id", async (req, res) => {
 
 // Server start
 const PORT = 5000;
+
 app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`);
 });
