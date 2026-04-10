@@ -12,7 +12,7 @@ body {
   align-items: center;
 
   background:linear-gradient(225deg, #e7f2f2 0.000%, #e7f2f2 20.000%, #aae9f4 calc(20.000% + 1px), #aae9f4 40.000%, #69d7ec calc(40.000% + 1px), #69d7ec 60.000%, #2fbcdb calc(60.000% + 1px), #2fbcdb 80.000%, #019ac1 calc(80.000% + 1px) 100.000%);
-
+}
 
 .container {
   width: 90%;
@@ -32,7 +32,7 @@ h2 {
   margin-bottom: 20px;
   font-weight: 600;
 
-  background: linear-gradient(90deg, #4facfe, #00c6ff);
+  -background: linear-gradient(90deg, #4facfe, #00c6ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
