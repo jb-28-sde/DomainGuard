@@ -1,7 +1,30 @@
-import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
+import { analyzeDomain } from '../Domain-analysis/analysis.js';
+import logger from '../Middlewares/Logger.js';
 
-import Scan from "../Models/ScanModel.js";
-import DnsRecord from "../Models/dnsRecordModel.js";
+const fullScan = async (req, res) => {
+  const { domain } = req.body;
+
+  try {
+    if (!domain) {
+      return res.status(400).json({
+        success: false,
+        error: "Domain is required"
+      });
+    }
+
+    logger.info(`SCAN STARTED: ${domain}`);
+    const result = await  analyzeDomain(domain);
+    logger.info(`SCAN COMPLETED: ${domain}`);
+
+    res.json({
+      success: true,
+      domain: result.domain,
+      status: result.status,
+      totalVariants: result.totalVariants,
+      variants: result.variants,
+      dnsResults: result.dnsResults,
+      message: `Scan complete for ${domain}`
+    });
 
 import { checkDNS } from "../Domain-analysis/DnsChecker.js";
 import { calculateSimilarityForVariants } from "../Domain-analysis/SimilarityCalculator.js";
@@ -135,11 +158,15 @@ export const FullScan = async (req, res) => {
 
     res.json(finalResults);
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Error in full scan pipeline" });
+    logger.info(`SCAN FAILED: ${error.message}`);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
   }
 };
 
+export { fullScan };
 export const getAllScans = async (req, res) => {
   try {
     const scans = await Scan.find().sort({ createdAt: -1 });

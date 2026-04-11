@@ -1,12 +1,12 @@
 import express from "express";
-import { FullScan, getAllScans } from "../Controllers/ScanController.js";
+import { fullScan } from "../Controllers/ScanController.js";
+import logger from "../Middlewares/Logger.js";
 
 const router = express.Router();
 
-
-router.post("/fullscan", FullScan);
-
-
-router.get("/scans", getAllScans);
+router.post("/fullscan", (req, res, next) => {
+  logger.info(`USER EVENT: Manual scan requested from IP: ${req.ip}`);
+  fullScan(req, res, next);
+});
 
 export default router;
