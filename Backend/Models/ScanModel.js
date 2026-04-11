@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const scanSchema = new mongoose.Schema(
   {
+    // 🔹 Original input domain
     original_domain: {
       type: String,
       required: [true, "Original domain is required"],
@@ -9,18 +10,21 @@ const scanSchema = new mongoose.Schema(
       lowercase: true,
     },
 
+    // 🔹 Generated domain (variant)
     generated_domain: {
       type: String,
       trim: true,
       lowercase: true,
     },
 
+    // 🔹 Similarity score
     similarity_score: {
       type: Number,
       min: [0, "Similarity score cannot be negative"],
       max: [100, "Similarity score cannot exceed 100"],
     },
 
+    // 🔹 DNS & WHOIS Info
     dns_exists: {
       type: Boolean,
       default: false,
@@ -41,6 +45,7 @@ const scanSchema = new mongoose.Schema(
       default: null,
     },
 
+    // 🔹 Domain Age
     ageInDays: {
       type: Number,
       default: null,
@@ -51,30 +56,73 @@ const scanSchema = new mongoose.Schema(
       default: null,
     },
 
+    // 🔹 Privacy
     isPrivacyProtected: {
       type: Boolean,
       default: null,
     },
+
+    // 🔹 TLD Info
     tld: {
       type: String,
       default: null,
     },
+
     tldRisk: {
       type: String,
       default: null,
     },
+
+    // 🔹 Impersonation Score
     impersonation_score: {
       type: Number,
     },
 
+    // 🔹 Final Risk Level
     risk_level: {
       type: String,
       enum: ["Low", "Medium", "High", "Critical"],
     },
+
+
+
+    // 🔹 Scan tracking (group multiple domains under one scan)
+    scan_id: {
+      type: String,
+      required: true,
+      index: true,
+    },
+
+    // 🔹 Total domains in this scan
+    total_domains: {
+      type: Number,
+      default: 0,
+    },
+
+    // 🔹 How many domains processed so far
+    scanned_domains: {
+      type: Number,
+      default: 0,
+    },
+
+    // 🔹 Progress percentage (0–100)
+    progress: {
+      type: Number,
+      default: 0,
+      min: 0,
+      max: 100,
+    },
+
+    // 🔹 Optional: store status
+    status: {
+      type: String,
+      enum: ["Pending", "Running", "Completed"],
+      default: "Pending",
+    },
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 const Scan = mongoose.model("Scan", scanSchema);
