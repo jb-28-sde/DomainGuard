@@ -30,3 +30,6 @@ app.listen(PORT, () => {
 cron.schedule('* * * * *', () => {
     logger.info("CRON EVENT: Automated system check performed.");
 });
+//server start
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => console.log(`Server connected on ${PORT}`));
