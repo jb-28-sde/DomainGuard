@@ -1,7 +1,7 @@
 import { scanQueue } from "../queue/scanQueue.js";
 import Scan from "../Models/ScanModel.js";
 
-// 🔥 START SCAN (Queue me bhejna)
+
 export const FullScan = async (req, res) => {
   try {
     const { domain: inputDomain } = req.body;
