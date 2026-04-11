@@ -1,6 +1,4 @@
-import generateVariants, {
-  generatePhishingVariants,
-} from "../Domain-analysis/DomainvariantGenerator.js";
+import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
 
 import Scan from "../Models/ScanModel.js";
 import DnsRecord from "../Models/dnsRecordModel.js";
@@ -24,7 +22,7 @@ import {
 
 import mongoose from "mongoose";
 
-//  Alert Model
+// Alert Model
 const AlertSchema = new mongoose.Schema({
   domain: String,
   riskLevel: String,
@@ -33,7 +31,7 @@ const AlertSchema = new mongoose.Schema({
 const Alert = mongoose.model("Alert", AlertSchema);
 
 // =======================================================
-//  FULL SCAN
+// FULL SCAN
 // =======================================================
 export const FullScan = async (req, res) => {
   try {
@@ -43,7 +41,7 @@ export const FullScan = async (req, res) => {
       return res.status(400).json({ message: "Domain is required" });
     }
 
-    //  Clean domain
+    // Clean domain
     let domain = inputDomain
       .toLowerCase()
       .replace("https://", "")
@@ -57,12 +55,11 @@ export const FullScan = async (req, res) => {
     const variants = generateVariants(domain);
     const similarityData = calculateSimilarityForVariants(domain, variants);
 
-    //  Progress tracking init
     const scan_id = new mongoose.Types.ObjectId().toString();
     const totalDomains = similarityData.length;
     let scannedCount = 0;
 
-    //  Create initial scan entry
+    // Initial scan entry
     await Scan.create({
       original_domain: domain,
       scan_id,
@@ -74,9 +71,6 @@ export const FullScan = async (req, res) => {
 
     const finalResults = [];
 
-    // ===================================================
-    //  LOOP
-    // ===================================================
     for (const item of similarityData) {
       const { tld, isSuspicious } = checkSuspiciousTLD(item.variant);
       const tldRisk = isSuspicious ? "HIGH" : "LOW";
@@ -88,7 +82,6 @@ export const FullScan = async (req, res) => {
       let ageInDays = null;
       let ageRisk = null;
       let isPrivacyProtected = null;
-
       let hosting_provider = null;
       let infraRisk = null;
       let reason = null;
@@ -99,9 +92,12 @@ export const FullScan = async (req, res) => {
         registrar = whoisData?.registrar || null;
         createdAt = whoisData?.creationDate || null;
 
-        const ageData = analyzeDomainAge(createdAt);
-        ageInDays = ageData.ageInDays;
-        ageRisk = ageData.ageRisk;
+        // safer handling
+        if (createdAt) {
+          const ageData = analyzeDomainAge(createdAt);
+          ageInDays = ageData.ageInDays;
+          ageRisk = ageData.ageRisk;
+        }
 
         isPrivacyProtected = checkPrivacy(whoisData?.owner);
 
@@ -123,7 +119,6 @@ export const FullScan = async (req, res) => {
         reason = infra.reason;
       }
 
-      //  Risk
       const score = calculateRiskScore({
         similarity: item.similarity,
         dns,
@@ -135,7 +130,7 @@ export const FullScan = async (req, res) => {
 
       const riskLevel = getRiskLevel(score);
 
-      //  ALERT
+      // ALERT
       if (riskLevel === "High" || riskLevel === "Critical") {
         await Alert.create({
           domain: item.variant,
@@ -162,9 +157,7 @@ export const FullScan = async (req, res) => {
 
       finalResults.push(result);
 
-      
-      
-      
+      // Store each domain result
       await Scan.create({
         original_domain: domain,
         generated_domain: item.variant,
@@ -182,7 +175,6 @@ export const FullScan = async (req, res) => {
         scan_id,
       });
 
-
       scannedCount++;
       const progress = Math.floor((scannedCount / totalDomains) * 100);
 
@@ -195,7 +187,6 @@ export const FullScan = async (req, res) => {
       );
     }
 
-  
     await Scan.findOneAndUpdate(
       { scan_id, generated_domain: { $exists: false } },
       {
@@ -209,13 +200,16 @@ export const FullScan = async (req, res) => {
       total: totalDomains,
       results: finalResults,
     });
+
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Error in full scan pipeline" });
   }
 };
 
-
+// =======================================================
+// PROGRESS
+// =======================================================
 export const getScanProgress = async (req, res) => {
   try {
     const { scan_id } = req.params;
@@ -240,12 +234,13 @@ export const getScanProgress = async (req, res) => {
   }
 };
 
-
+// =======================================================
+// REPORT
+// =======================================================
 export const getScanReport = async (req, res) => {
   try {
     const { scan_id } = req.params;
 
-    // Only count scanned domains
     const domains = await Scan.find({
       scan_id,
       generated_domain: { $ne: null },
@@ -262,5 +257,17 @@ export const getScanReport = async (req, res) => {
     res.json(report);
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+// =======================================================
+// GET ALL SCANS (from main branch)
+// =======================================================
+export const getAllScans = async (req, res) => {
+  try {
+    const scans = await Scan.find().sort({ createdAt: -1 });
+    res.json(scans);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching scans" });
   }
 };
