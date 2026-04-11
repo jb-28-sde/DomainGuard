@@ -1,4 +1,4 @@
-import { scanQueue } from "./queue/scanQueue.js"; // ✅ FIXED IMPORT
+import { scanQueue } from "./queue/scanQueue.js";
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -9,17 +9,17 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
-// DB connect
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ Database Connected successfully"))
   .catch((err) => console.log(err));
 
-// Test route
+
 app.get("/", (req, res) => {
   res.send("🚀 Server is running");
 });
@@ -34,7 +34,8 @@ app.post("/api/fullscan", async (req, res) => {
       return res.status(400).json({ message: "Domain required" });
     }
 
-    // ✅ Clean domain
+
+    
     domain = domain
       .toLowerCase()
       .replace("https://", "")
@@ -45,10 +46,10 @@ app.post("/api/fullscan", async (req, res) => {
       domain = domain.split("/")[0];
     }
 
-    // ✅ Add job to queue
+    
     const job = await scanQueue.add("scan-job", { domain });
 
-    // ✅ Return jobId (IMPORTANT)
+    
     res.json({
       message: "Scan started 🚀",
       jobId: job.id,
