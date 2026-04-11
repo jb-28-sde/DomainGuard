@@ -20,7 +20,6 @@ import {
   getRiskLevel,
 } from "../Domain-analysis/riskScoring.js";
 
-
 export const FullScan = async (req, res) => {
   try {
     const { domain: inputDomain } = req.body;
@@ -29,7 +28,6 @@ export const FullScan = async (req, res) => {
       return res.status(400).json({ message: "Domain is required" });
     }
 
-    
     let domain = inputDomain
       .toLowerCase()
       .replace("https://", "")
@@ -40,10 +38,8 @@ export const FullScan = async (req, res) => {
       domain = domain.split("/")[0];
     }
 
-   
     const variants = generateVariants(domain);
 
-   
     const similarityData = calculateSimilarityForVariants(domain, variants);
 
     const finalResults = await Promise.all(
@@ -64,13 +60,11 @@ export const FullScan = async (req, res) => {
         let reason = null;
 
         if (dns) {
-          
           const whoisData = await getWhoisData(item.variant);
 
           registrar = whoisData?.registrar || null;
           createdAt = whoisData?.creationDate || null;
 
-          
           let ageData = { ageInDays: null, ageRisk: "LOW" };
           if (createdAt) {
             ageData = analyzeDomainAge(createdAt);
@@ -81,7 +75,6 @@ export const FullScan = async (req, res) => {
 
           isPrivacyProtected = checkPrivacy(whoisData?.owner);
 
-          
           const dnsData = await getDNSRecords(item.variant);
 
           await DnsRecord.create({
@@ -93,7 +86,6 @@ export const FullScan = async (req, res) => {
             scanned_at: new Date(),
           });
 
-        
           const infra = await detectSharedInfrastructure(item.variant, dnsData);
 
           hosting_provider = infra.hosting_provider;
@@ -101,7 +93,6 @@ export const FullScan = async (req, res) => {
           reason = infra.reason;
         }
 
-        
         const score = calculateRiskScore({
           similarity: item.similarity,
           dns,
@@ -129,10 +120,9 @@ export const FullScan = async (req, res) => {
           impersonation_score: score,
           risk_level: riskLevel,
         };
-      })
+      }),
     );
 
-    
     await Scan.findOneAndUpdate(
       { original_domain: domain },
       {
@@ -140,7 +130,7 @@ export const FullScan = async (req, res) => {
         results: finalResults,
         createdAt: new Date(),
       },
-      { upsert: true, new: true }
+      { upsert: true, returnDocument: true },
     );
 
     res.json(finalResults);
@@ -149,7 +139,6 @@ export const FullScan = async (req, res) => {
     res.status(500).json({ message: "Error in full scan pipeline" });
   }
 };
-
 
 export const getAllScans = async (req, res) => {
   try {
