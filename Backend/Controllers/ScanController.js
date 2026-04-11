@@ -1,6 +1,4 @@
-import generateVariants, {
-  generatePhishingVariants,
-} from "../Domain-analysis/DomainvariantGenerator.js";
+import generateVariants from "../Domain-analysis/DomainvariantGenerator.js";
 
 import Scan from "../Models/ScanModel.js";
 import DnsRecord from "../Models/dnsRecordModel.js";
@@ -22,6 +20,7 @@ import {
   getRiskLevel,
 } from "../Domain-analysis/riskScoring.js";
 
+
 export const FullScan = async (req, res) => {
   try {
     const { domain: inputDomain } = req.body;
@@ -30,7 +29,7 @@ export const FullScan = async (req, res) => {
       return res.status(400).json({ message: "Domain is required" });
     }
 
-    // Clean domain
+    
     let domain = inputDomain
       .toLowerCase()
       .replace("https://", "")
@@ -41,10 +40,10 @@ export const FullScan = async (req, res) => {
       domain = domain.split("/")[0];
     }
 
-    // Generate variants
+   
     const variants = generateVariants(domain);
 
-    // Similarity calculation
+   
     const similarityData = calculateSimilarityForVariants(domain, variants);
 
     const finalResults = await Promise.all(
@@ -65,24 +64,26 @@ export const FullScan = async (req, res) => {
         let reason = null;
 
         if (dns) {
-          // WHOIS
+          
           const whoisData = await getWhoisData(item.variant);
 
           registrar = whoisData?.registrar || null;
           createdAt = whoisData?.creationDate || null;
 
-          // Domain Age
-          const ageData = analyzeDomainAge(createdAt);
+          
+          let ageData = { ageInDays: null, ageRisk: "LOW" };
+          if (createdAt) {
+            ageData = analyzeDomainAge(createdAt);
+          }
+
           ageInDays = ageData.ageInDays;
           ageRisk = ageData.ageRisk;
 
-          // Privacy
           isPrivacyProtected = checkPrivacy(whoisData?.owner);
 
-          // DNS Records
+          
           const dnsData = await getDNSRecords(item.variant);
 
-          // Save DNS records
           await DnsRecord.create({
             domain: item.variant,
             A_record: dnsData.A,
@@ -92,7 +93,7 @@ export const FullScan = async (req, res) => {
             scanned_at: new Date(),
           });
 
-          // Infrastructure Detection
+        
           const infra = await detectSharedInfrastructure(item.variant, dnsData);
 
           hosting_provider = infra.hosting_provider;
@@ -100,7 +101,7 @@ export const FullScan = async (req, res) => {
           reason = infra.reason;
         }
 
-        // Risk Scoring
+        
         const score = calculateRiskScore({
           similarity: item.similarity,
           dns,
@@ -110,47 +111,51 @@ export const FullScan = async (req, res) => {
           infraRisk,
         });
 
-        // Risk Level
         const riskLevel = getRiskLevel(score);
 
         return {
           domain: item.variant,
           similarity: item.similarity,
           dns,
-
           registrar,
           createdAt,
-
           ageInDays,
           ageRisk,
-
           isPrivacyProtected,
-
           tld,
           tldRisk,
-
           hosting_provider,
           reason,
-
           impersonation_score: score,
           risk_level: riskLevel,
         };
-      }),
+      })
     );
 
-    // Save original domain
-    const existing = await Scan.findOne({ original_domain: domain });
-
-    if (!existing) {
-      await Scan.create({
+    
+    await Scan.findOneAndUpdate(
+      { original_domain: domain },
+      {
         original_domain: domain,
-      });
-    }
+        results: finalResults,
+        createdAt: new Date(),
+      },
+      { upsert: true, new: true }
+    );
 
-    // Final response
     res.json(finalResults);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Error in full scan pipeline" });
+  }
+};
+
+
+export const getAllScans = async (req, res) => {
+  try {
+    const scans = await Scan.find().sort({ createdAt: -1 });
+    res.json(scans);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching scans" });
   }
 };
