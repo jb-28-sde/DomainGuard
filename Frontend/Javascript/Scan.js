@@ -1,152 +1,47 @@
 import { BASE_URL } from "./config.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const domainInput = document.getElementById("domainInput");
-  const scanBtn = document.getElementById("scanBtn");
-  const resultDiv = document.getElementById("result");
-  const errorDiv = document.getElementById("error");
-  const form = document.getElementById("scanForm");
+    document.getElementById("scanForm").addEventListener("submit", (e) =>{
+        e.preventDefault();
+    });
+    const domainInput = document.getElementById("domainInput");
+    const scanBtn = document.getElementById("scanBtn");
+    const resultDiv = document.getElementById("result");
+    const errorDiv = document.getElementById("error");
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    handleScan();
-  });
+    const handleScan = async () => {
+        const domain = domainInput.value.trim();
 
-  function handleScan() {
-    const domain = domainInput.value.trim();
-
-    // Clear previous state
-    errorDiv.textContent = "";
-    resultDiv.innerHTML = "";
-
-    // Validation
-    if (!domain) {
-      errorDiv.textContent = "Domain cannot be empty";
-      return;
-    }
-
-    const domainPattern = /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,}$/i;
-    if (!domainPattern.test(domain)) {
-      errorDiv.textContent = "Enter a valid domain (e.g. example.com)";
-      return;
-    }
-
-    // Loading state
-    scanBtn.disabled = true;
-    scanBtn.textContent = "Scanning...";
-    resultDiv.innerHTML = "<p>Scanning, please wait...</p>";
-
-    // API Call
-    fetch(`${BASE_URL}/api/Fullscan`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ domain }),
-    })
-      .then(async (res) => {
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.message || "Server error");
-        return data;
-      })
-      .then((dataArray) => {
-        console.log("API Response:", dataArray);
-
-        // Already scanned / single result message
-        if (dataArray.message) {
-          resultDiv.innerHTML = `
-            <div class="result-card info">
-              ${dataArray.message} (${dataArray.domain})
-            </div>
-          `;
-          return;
+        // 1. Validation
+        if (!domain) {
+            errorDiv.textContent = "Please enter a domain";
+            return;
         }
 
-        // Empty response
-        if (!Array.isArray(dataArray) || dataArray.length === 0) {
-          resultDiv.innerHTML = "<p>No scan data returned</p>";
-          return;
+        // 2. Clear UI and show Loading
+        errorDiv.textContent = "";
+        resultDiv.innerHTML = "<p>Scanning... Please wait.</p>";
+
+        try {
+            // 3. Correct Fetch (Using port 4001 and the correct route)
+            const response = await fetch(`${BASE_URL}/api/fullscan`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ domain: domain })
+            });
+
+            const data = await response.json();
+
+            // 4. Show Output in Browser
+            console.log("API Response:", data);
+            resultDiv.innerHTML = `<h3>Results:</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+
+        } catch (error) {
+            console.error("Connection Error:", error);
+            errorDiv.textContent = "Error: Cannot connect to Backend.";
         }
+    };
 
-        // Sort variants by similarity descending
-        const sorted = dataArray.sort((a, b) => b.similarity - a.similarity);
-
-        // Main stats for top variant
-        const topVariant = sorted[0];
-        const similarity = topVariant?.similarity ?? "N/A";
-        const hasActiveDns = sorted.some((item) => item.dns);
-        const dnsStatus = hasActiveDns ? "Active" : "Fail";
-        const dnsClass = hasActiveDns ? "success" : "fail";
-
-        // User-friendly status
-        let statusText = "";
-        let statusClass = "";
-        let statusMessage = "";
-
-        if (hasActiveDns && similarity > 85) {
-          statusText = "Safe";
-          statusClass = "success";
-          statusMessage = "This domain looks genuine and safe to use.";
-        } else {
-          statusText = "Risky";
-          statusClass = "fail";
-          statusMessage =
-            "Similar domains found. Please be cautious before using it.";
-        }
-
-        // Render full UI
-        resultDiv.innerHTML = `
-          <div class="result-card">
-            <h3>Scan Result</h3>
-
-            <p><strong>Domain:</strong> ${domain}</p>
-
-            <p style="margin-top:8px;">
-              <strong>Status:</strong>
-              <span class="badge ${statusClass}">${statusText}</span>
-            </p>
-
-            <p style="margin-top:8px;">${statusMessage}</p>
-
-            <hr style="margin:12px 0;">
-
-            <div class="stats">
-              <span class="badge success">Top Similarity: ${similarity}%</span>
-              <span class="badge ${dnsClass}">DNS: ${dnsStatus}</span>
-            </div>
-
-            <p><strong>Total Variants Found:</strong> ${sorted.length}</p>
-
-            <table>
-              <thead>
-                <tr>
-                  <th>Domain</th>
-                  <th>Similarity</th>
-                  <th>DNS</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${sorted
-                  .map(
-                    (v) => `
-                  <tr>
-                    <td>${v.domain}</td>
-                    <td>${v.similarity}%</td>
-                    <td>${v.dns ? "Active" : "Fail"}</td>
-                  </tr>
-                `
-                  )
-                  .join("")}
-              </tbody>
-            </table>
-          </div>
-        `;
-      })
-      .catch((err) => {
-        console.error("Error:", err);
-        errorDiv.textContent = err.message;
-      })
-      .finally(() => {
-        scanBtn.disabled = false;
-        scanBtn.textContent = "Scan";
-      });
-  }
+    // 5. Attach the function to the button
+    scanBtn.addEventListener("click", handleScan);
 });
