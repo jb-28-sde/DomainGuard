@@ -10,7 +10,8 @@ export const FullScan = async (req, res) => {
       return res.status(400).json({ message: "Domain is required" });
     }
 
-    // ✅ Clean domain
+  
+
     let domain = inputDomain
       .toLowerCase()
       .replace("https://", "")
@@ -21,7 +22,8 @@ export const FullScan = async (req, res) => {
       domain = domain.split("/")[0];
     }
 
-    // ✅ Queue me job bhejo
+  
+
     const job = await scanQueue.add("scan-job", { domain });
 
     return res.json({
@@ -35,7 +37,8 @@ export const FullScan = async (req, res) => {
   }
 };
 
-// 🔍 GET RESULT (DB se)
+
+
 export const getScanResult = async (req, res) => {
   try {
     const { domain } = req.params;
