@@ -1,10 +1,12 @@
 import { Queue } from "bullmq";
 import IORedis from "ioredis";
 
-const connection = new IORedis();
-
-const scanQueue = new Queue("scan-queue", {
-  connection,
+const connection = new IORedis({
+  host: "127.0.0.1",
+  port: 6379,
+  maxRetriesPerRequest: null,
 });
 
-export default scanQueue;
+export const scanQueue = new Queue("scan-queue", {
+  connection,
+});

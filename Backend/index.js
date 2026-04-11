@@ -1,4 +1,4 @@
-import scanQueue from "./queue/scanQueue.js";
+import { scanQueue } from "./queue/scanQueue.js"; // ✅ FIXED IMPORT
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -16,65 +16,43 @@ app.use(express.json());
 // DB connect
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.log("Database Connected successfully"))
+  .then(() => console.log("✅ Database Connected successfully"))
   .catch((err) => console.log(err));
 
 // Test route
 app.get("/", (req, res) => {
-  res.send("Server is running 🚀");
+  res.send("🚀 Server is running");
 });
 
 
-// 🔥 Dummy Scanner Function (USED IN NEXT MILESTONE ONLY)
-async function runYourScanner(domain) {
-  return [
-    {
-      domain: domain,
-      similarity: 100,
-      dns: true,
-      registrar: "GoDaddy",
-      createdAt: "2024-01-01",
-      ageInDays: 400,
-      ageRisk: "LOW",
-      isPrivacyProtected: false,
-
-      tld: "." + domain.split(".").pop(),
-
-      tldRisk: "LOW",
-      risk_level: "Low",
-    },
-    {
-      domain: "fake-" + domain,
-      similarity: 90,
-      dns: false,
-      registrar: null,
-      createdAt: null,
-      ageInDays: null,
-      ageRisk: "HIGH",
-      isPrivacyProtected: true,
-      tld: ".xyz",
-      tldRisk: "HIGH",
-      risk_level: "High",
-    },
-  ];
-}
-
-
-// 🚀 ✅ MILESTONE 27: QUEUE-BASED SCAN API
+// 🚀 QUEUE-BASED SCAN API (FIXED)
 app.post("/api/fullscan", async (req, res) => {
   try {
-    const { domain } = req.body;
+    let { domain } = req.body;
 
     if (!domain) {
       return res.status(400).json({ message: "Domain required" });
     }
 
-    // 🔥 Add job to queue
-    await scanQueue.add("scan-job", { domain });
+    // ✅ Clean domain
+    domain = domain
+      .toLowerCase()
+      .replace("https://", "")
+      .replace("http://", "")
+      .replace("www.", "");
 
-    // ⚡ Instant response
+    if (domain.includes("/")) {
+      domain = domain.split("/")[0];
+    }
+
+    // ✅ Add job to queue
+    const job = await scanQueue.add("scan-job", { domain });
+
+    // ✅ Return jobId (IMPORTANT)
     res.json({
       message: "Scan started 🚀",
+      jobId: job.id,
+      domain: domain,
     });
 
   } catch (err) {
@@ -95,7 +73,31 @@ app.get("/api/history", async (req, res) => {
 });
 
 
-// 🔍 GET SINGLE SCAN
+// 🔍 GET SINGLE SCAN BY DOMAIN (NEW ADD)
+app.get("/api/result/:domain", async (req, res) => {
+  try {
+    const { domain } = req.params;
+
+    const data = await Scan.findOne({ original_domain: domain });
+
+    if (!data) {
+      return res.json({
+        status: "processing",
+      });
+    }
+
+    res.json({
+      status: "completed",
+      data,
+    });
+
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching result" });
+  }
+});
+
+
+// 🔍 GET SINGLE SCAN BY ID (OLD)
 app.get("/api/history/:id", async (req, res) => {
   try {
     const data = await Scan.findById(req.params.id);
@@ -110,5 +112,5 @@ app.get("/api/history/:id", async (req, res) => {
 const PORT = 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on ${PORT}`);
+  console.log(`🚀 Server running on ${PORT}`);
 });

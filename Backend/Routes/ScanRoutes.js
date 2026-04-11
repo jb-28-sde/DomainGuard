@@ -1,8 +1,12 @@
 import express from "express";
-import {FullScan} from "../Controllers/ScanController.js";
-
+import { FullScan, getScanResult } from "../Controllers/scanController.js";
 
 const router = express.Router();
 
-router.post("/fullscan", FullScan);
+// 🚀 Start scan
+router.post("/scan", FullScan);
+
+// 🔍 Get result
+router.get("/scan/:domain", getScanResult);
+
 export default router;
