@@ -3,7 +3,6 @@ function validateInput(str) {
   return typeof str === "string" && str.trim().length > 0;
 }
 
-// Optimized 2-row DP Levenshtein distance
 function levenshteinOptimized(a, b) {
   if (!validateInput(a) || !validateInput(b)) return Infinity;
 
@@ -22,19 +21,18 @@ function levenshteinOptimized(a, b) {
         curr[j] = prev[j - 1];
       } else {
         curr[j] = Math.min(
-          prev[j] + 1, // deletion
-          curr[j - 1] + 1, // insertion
-          prev[j - 1] + 1, // substitution
+          prev[j] + 1, 
+          curr[j - 1] + 1, 
+          prev[j - 1] + 1, 
         );
       }
     }
-    [prev, curr] = [curr, prev]; // swap for next iteration
+    [prev, curr] = [curr, prev]; 
   }
 
   return prev[a.length];
 }
 
-// Calculate similarity % between original and single variant
 export function calculateSimilarity(original, variant) {
   if (!validateInput(original) || !validateInput(variant)) return 0;
 
