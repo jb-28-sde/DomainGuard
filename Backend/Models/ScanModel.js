@@ -2,14 +2,16 @@ import mongoose from "mongoose";
 
 const scanSchema = new mongoose.Schema(
   {
+    brandName: {
     // 🔹 Original input domain
     original_domain: {
       type: String,
-      required: [true, "Original domain is required"],
-      trim: true,
-      lowercase: true,
+      required: true,
     },
 
+    scanDate: {
+      type: Date,
+      default: Date.now,
     // 🔹 Generated domain (variant)
     generated_domain: {
       type: String,
@@ -51,11 +53,28 @@ const scanSchema = new mongoose.Schema(
       default: null,
     },
 
-    ageRisk: {
-      type: String,
-      default: null,
-    },
+    totalDomains: Number,
 
+    results: [
+      {
+        domain: String,
+        similarity: Number,
+        dns: Boolean,
+        registrar: String,
+        createdAt: String,
+        ageInDays: Number,
+        ageRisk: String,
+        isPrivacyProtected: Boolean,
+        tld: String,
+        tldRisk: String,
+        risk_level: String,
+      },
+    ],
+  },
+  { timestamps: true }
+);
+
+export default mongoose.model("Scan", scanSchema);
     // 🔹 Privacy
     isPrivacyProtected: {
       type: Boolean,

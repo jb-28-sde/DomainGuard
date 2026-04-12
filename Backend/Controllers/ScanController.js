@@ -1,3 +1,5 @@
+import { scanQueue } from "../queue/scanQueue.js";
+import Scan from "../Models/ScanModel.js";
 import logger from '../Middlewares/Logger.js';
 import mongoose from "mongoose";
 
@@ -9,15 +11,6 @@ import { checkPrivacy } from "../Domain-analysis/privacyCheckService.js";
 import { checkSuspiciousTLD } from "../Domain-analysis/TldChecker.js";
 import { generateVariants } from "../Domain-analysis/variantGenerator.js"; // ✅ FIXED
 
-import {
-  getDNSRecords,
-  detectSharedInfrastructure,
-} from "../Domain-analysis/dnsInfrastructure.js";
-
-import {
-  calculateRiskScore,
-  getRiskLevel,
-} from "../Domain-analysis/riskScoring.js";
 
 
 const generateJsonReport = (brand, results) => {
@@ -48,7 +41,8 @@ export const FullScan = async (req, res) => {
       return res.status(400).json({ message: "Domain is required" });
     }
 
-    // Clean domain
+  
+
     let domain = inputDomain
       .toLowerCase()
       .replace("https://", "")
@@ -59,6 +53,43 @@ export const FullScan = async (req, res) => {
       domain = domain.split("/")[0];
     }
 
+  
+
+    const job = await scanQueue.add("scan-job", { domain });
+
+    return res.json({
+      message: "Scan started 🚀",
+      jobId: job.id,
+      domain: domain,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error starting scan" });
+  }
+};
+
+
+
+export const getScanResult = async (req, res) => {
+  try {
+    const { domain } = req.params;
+
+    const result = await Scan.findOne({ original_domain: domain });
+
+    if (!result) {
+      return res.json({
+        status: "processing",
+        message: "Scan abhi chal raha hai...",
+      });
+    }
+
+    return res.json({
+      status: "completed",
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error fetching result" });
     logger.info(`SCAN STARTED: ${domain}`);
 
     const variants = generateVariants(domain);
