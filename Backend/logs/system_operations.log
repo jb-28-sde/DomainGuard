@@ -468,3 +468,19 @@
 [2026-04-13 16:51:00] INFO: SERVER: Running on port 5000
 [2026-04-13 16:51:17] INFO: DATABASE: Connection attempt initiated.
 [2026-04-13 16:51:17] INFO: SERVER: Running on port 5000
+[2026-04-13 17:16:34] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 17:16:35] INFO: SERVER: Running on port 5000
+[2026-04-13 17:17:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 17:18:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 17:18:34] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 17:18:35] INFO: SCAN STARTED: niit.com
+[2026-04-13 17:19:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 17:20:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 17:21:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 17:22:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 17:23:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 17:24:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 17:25:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 17:26:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 17:27:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 17:28:00] INFO: CRON EVENT: Automated system check performed.
