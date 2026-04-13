@@ -1,48 +1,45 @@
 import { scanQueue } from "./queue/scanQueue.js";
 import express from "express";
-import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import Scan from "./models/ScanModel.js";
-import dotenv from "dotenv";
+import Scan from "./Models/ScanModel.js";
 import connectDB from "./config/database.js";
 import cron from "node-cron";
-import cors from "cors";
-// 1. IMPORT THE LOGGER AT THE TOP
 import logger from "./Middlewares/Logger.js"; 
 import scanRoutes from "./Routes/ScanRoutes.js";
 
+// Load environment variables
 dotenv.config();
 
 const app = express();
 
-
-app.use(cors());
+// Apply middleware (only once)
+app.use(cors({ origin: "http://127.0.0.1:5500" }));
 app.use(express.json());
 
+// Connect to database (only once)
+connectDB();
+logger.info("DATABASE: Connection attempt initiated.");
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ Database Connected successfully"))
-  .catch((err) => console.log(err));
+// Register routes
+app.use('/api', scanRoutes);
 
-
+// Root route
 app.get("/", (req, res) => {
-  res.send("🚀 Server is running");
+  res.send("Server is running");
 });
 
-
-// 🚀 QUEUE-BASED SCAN API (FIXED)
+// Queue-based scan API
 app.post("/api/fullscan", async (req, res) => {
   try {
     let { domain } = req.body;
 
+    // Validate input
     if (!domain) {
       return res.status(400).json({ message: "Domain required" });
     }
 
-
-    
+    // Normalize domain
     domain = domain
       .toLowerCase()
       .replace("https://", "")
@@ -53,14 +50,13 @@ app.post("/api/fullscan", async (req, res) => {
       domain = domain.split("/")[0];
     }
 
-    
+    // Add job to queue
     const job = await scanQueue.add("scan-job", { domain });
 
-    
     res.json({
-      message: "Scan started 🚀",
+      message: "Scan started",
       jobId: job.id,
-      domain: domain,
+      domain,
     });
 
   } catch (err) {
@@ -69,8 +65,7 @@ app.post("/api/fullscan", async (req, res) => {
   }
 });
 
-
-// 📊 GET ALL HISTORY
+// Get all scan history
 app.get("/api/history", async (req, res) => {
   try {
     const data = await Scan.find().sort({ createdAt: -1 });
@@ -80,8 +75,7 @@ app.get("/api/history", async (req, res) => {
   }
 });
 
-
-// 🔍 GET SINGLE SCAN BY DOMAIN (NEW ADD)
+// Get scan result by domain
 app.get("/api/result/:domain", async (req, res) => {
   try {
     const { domain } = req.params;
@@ -89,9 +83,7 @@ app.get("/api/result/:domain", async (req, res) => {
     const data = await Scan.findOne({ original_domain: domain });
 
     if (!data) {
-      return res.json({
-        status: "processing",
-      });
+      return res.json({ status: "processing" });
     }
 
     res.json({
@@ -104,8 +96,7 @@ app.get("/api/result/:domain", async (req, res) => {
   }
 });
 
-
-// 🔍 GET SINGLE SCAN BY ID (OLD)
+// Get scan by ID
 app.get("/api/history/:id", async (req, res) => {
   try {
     const data = await Scan.findById(req.params.id);
@@ -115,33 +106,15 @@ app.get("/api/history/:id", async (req, res) => {
   }
 });
 
-
-// Server start
-const PORT = 5000;
-
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on ${PORT}`);
-});
-app.use(express.json());
-app.use(cors({origin: 'http://127.0.0.1:5500'}));
-app.use('/api',scanRoutes);
-
-
-// 2. LOG THE DATABASE CONNECTION
-connectDB();
-logger.info("DATABASE: Connection attempt initiated.");
-
-const PORT = process.env.PORT || 4001;
-
-// 3. UPDATE THE SERVER START TO USE LOGGER
-app.listen(PORT, () => {
-    logger.info(`SERVER: System successfully started on port ${PORT}`);
-});
-
-// 4. ADD A TEST TRIGGER FOR THE CRON LOG (Milestone 36)
+// Cron job for periodic logging
 cron.schedule('* * * * *', () => {
-    logger.info("CRON EVENT: Automated system check performed.");
+  logger.info("CRON EVENT: Automated system check performed.");
 });
-//server start
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`Server connected on ${PORT}`));
+
+// Define single port
+const PORT = process.env.PORT || 5000;
+
+// Start server
+app.listen(PORT, () => {
+  logger.info(`SERVER: Running on port ${PORT}`);
+});
