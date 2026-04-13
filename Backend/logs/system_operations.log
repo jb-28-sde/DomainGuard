@@ -210,3 +210,261 @@
 [2026-04-11 14:46:41] INFO: SCAN STARTED: example.com
 [2026-04-11 14:47:00] INFO: CRON EVENT: Automated system check performed.
 [2026-04-11 14:47:05] INFO: SCAN COMPLETED: example.com
+[2026-04-13 12:56:38] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 12:56:38] INFO: SERVER: Running on port 5000
+[2026-04-13 12:57:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 12:58:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:00:21] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 13:00:24] INFO: SERVER: Running on port 5000
+[2026-04-13 13:01:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:03:12] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 13:03:12] INFO: SERVER: Running on port 5000
+[2026-04-13 13:04:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:04:57] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 13:04:57] INFO: SERVER: Running on port 5000
+[2026-04-13 13:05:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:06:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:07:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:08:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:09:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:10:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:11:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:12:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:13:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:14:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:15:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:16:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:17:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:18:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:19:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:20:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:21:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:22:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:23:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:24:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:25:02] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:25:45] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 13:26:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:27:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:28:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:29:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:30:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:31:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:32:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:32:20] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 13:32:21] INFO: SERVER: Running on port 5000
+[2026-04-13 13:32:54] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 13:32:54] INFO: SERVER: Running on port 5000
+[2026-04-13 13:33:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 13:34:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 15:25:12] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 15:25:12] INFO: SERVER: Running on port 5000
+[2026-04-13 15:25:36] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 15:25:36] INFO: SCAN STARTED: google.com
+[2026-04-13 15:25:48] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 15:25:48] INFO: SCAN STARTED: google.com
+[2026-04-13 15:25:52] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 15:25:52] INFO: SCAN STARTED: google.com
+[2026-04-13 15:25:53] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 15:25:53] INFO: SCAN STARTED: google.com
+[2026-04-13 15:25:54] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 15:25:54] INFO: SCAN STARTED: google.com
+[2026-04-13 15:26:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 15:27:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 15:28:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 15:29:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:00:54] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:00:54] INFO: SERVER: Running on port 5000
+[2026-04-13 16:01:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:01:03] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:01:03] INFO: SCAN STARTED: google.com
+[2026-04-13 16:01:31] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:01:31] INFO: SERVER: Running on port 5000
+[2026-04-13 16:02:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:02:26] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:02:26] INFO: SERVER: Running on port 5000
+[2026-04-13 16:03:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:03:02] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:03:02] INFO: SCAN STARTED: amazon.com
+[2026-04-13 16:03:27] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:03:27] INFO: SERVER: Running on port 5000
+[2026-04-13 16:04:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:05:02] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:05:03] INFO: SERVER: Running on port 5000
+[2026-04-13 16:05:24] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:05:24] INFO: SCAN STARTED: whatsapp.com
+[2026-04-13 16:06:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:06:55] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:06:55] INFO: SERVER: Running on port 5000
+[2026-04-13 16:07:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:08:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:09:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:09:58] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:09:58] INFO: SERVER: Running on port 5000
+[2026-04-13 16:10:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:11:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:12:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:12:46] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:12:46] INFO: SERVER: Running on port 5000
+[2026-04-13 16:12:55] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:12:55] INFO: SERVER: Running on port 5000
+[2026-04-13 16:12:59] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:12:59] INFO: SCAN STARTED: whatsapp.com
+[2026-04-13 16:13:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:13:40] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:13:40] INFO: SERVER: Running on port 5000
+[2026-04-13 16:13:59] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:13:59] INFO: SERVER: Running on port 5000
+[2026-04-13 16:14:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:14:17] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:14:17] INFO: SERVER: Running on port 5000
+[2026-04-13 16:14:31] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:14:31] INFO: SCAN STARTED: github.com
+[2026-04-13 16:15:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:15:20] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:15:20] INFO: SERVER: Running on port 5000
+[2026-04-13 16:15:33] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:15:33] INFO: SERVER: Running on port 5000
+[2026-04-13 16:15:39] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:15:39] INFO: SERVER: Running on port 5000
+[2026-04-13 16:15:40] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:15:40] INFO: SCAN STARTED: github.com
+[2026-04-13 16:16:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:16:46] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:16:46] INFO: SCAN STARTED: youtube.com
+[2026-04-13 16:17:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:18:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:19:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:20:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:20:43] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:20:43] INFO: SERVER: Running on port 5000
+[2026-04-13 16:21:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:21:30] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:21:30] INFO: SERVER: Running on port 5000
+[2026-04-13 16:21:41] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:21:41] INFO: SCAN STARTED: myntra.com
+[2026-04-13 16:22:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:23:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:23:45] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:23:45] INFO: SERVER: Running on port 5000
+[2026-04-13 16:23:58] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:23:58] INFO: SCAN STARTED: myntra.com
+[2026-04-13 16:24:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:24:33] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:24:33] INFO: SERVER: Running on port 5000
+[2026-04-13 16:24:41] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:24:41] INFO: SERVER: Running on port 5000
+[2026-04-13 16:24:47] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:24:47] INFO: SERVER: Running on port 5000
+[2026-04-13 16:25:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:25:18] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:25:18] INFO: SERVER: Running on port 5000
+[2026-04-13 16:25:23] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:25:24] INFO: SERVER: Running on port 5000
+[2026-04-13 16:25:38] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:25:38] INFO: SCAN STARTED: samsung.com
+[2026-04-13 16:26:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:27:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:27:18] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:27:18] INFO: SERVER: Running on port 5000
+[2026-04-13 16:27:29] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:27:29] INFO: SCAN STARTED: iphone.com
+[2026-04-13 16:28:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:28:35] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:28:35] INFO: SERVER: Running on port 5000
+[2026-04-13 16:29:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:29:20] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:29:20] INFO: SCAN STARTED: apple.com
+[2026-04-13 16:30:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:31:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:32:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:33:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:34:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:35:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:36:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:36:14] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:36:15] INFO: SERVER: Running on port 5000
+[2026-04-13 16:36:30] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:36:30] INFO: SCAN STARTED: apple.com
+[2026-04-13 16:37:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:38:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:38:46] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:38:48] INFO: SERVER: Running on port 5000
+[2026-04-13 16:39:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:40:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:41:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:42:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:43:31] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:43:31] INFO: SERVER: Running on port 5000
+[2026-04-13 16:43:38] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:43:39] INFO: SERVER: Running on port 5000
+[2026-04-13 16:44:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:44:20] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:44:20] INFO: SERVER: Running on port 5000
+[2026-04-13 16:44:28] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:44:28] INFO: SERVER: Running on port 5000
+[2026-04-13 16:44:32] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:44:32] INFO: SERVER: Running on port 5000
+[2026-04-13 16:44:36] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:44:36] INFO: SERVER: Running on port 5000
+[2026-04-13 16:44:40] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:44:40] INFO: SERVER: Running on port 5000
+[2026-04-13 16:44:52] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:44:52] INFO: SCAN STARTED: niit.com
+[2026-04-13 16:45:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:45:10] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:45:10] INFO: SERVER: Running on port 5000
+[2026-04-13 16:45:14] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:45:14] INFO: SERVER: Running on port 5000
+[2026-04-13 16:45:20] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:45:20] INFO: SERVER: Running on port 5000
+[2026-04-13 16:45:24] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:45:24] INFO: SERVER: Running on port 5000
+[2026-04-13 16:45:28] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:45:28] INFO: SERVER: Running on port 5000
+[2026-04-13 16:46:00] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:46:00] INFO: SERVER: Running on port 5000
+[2026-04-13 16:46:08] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:46:08] INFO: SERVER: Running on port 5000
+[2026-04-13 16:46:12] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:46:12] INFO: SERVER: Running on port 5000
+[2026-04-13 16:46:16] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:46:16] INFO: SERVER: Running on port 5000
+[2026-04-13 16:46:20] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:46:20] INFO: SERVER: Running on port 5000
+[2026-04-13 16:46:39] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:46:39] INFO: SERVER: Running on port 5000
+[2026-04-13 16:46:48] INFO: USER EVENT: Manual scan requested from IP: ::ffff:127.0.0.1
+[2026-04-13 16:46:48] INFO: SCAN STARTED: niit.com
+[2026-04-13 16:47:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:48:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:48:15] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:48:15] INFO: SERVER: Running on port 5000
+[2026-04-13 16:48:21] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:48:21] INFO: SERVER: Running on port 5000
+[2026-04-13 16:48:25] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:48:25] INFO: SERVER: Running on port 5000
+[2026-04-13 16:48:32] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:48:32] INFO: SERVER: Running on port 5000
+[2026-04-13 16:48:36] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:48:36] INFO: SERVER: Running on port 5000
+[2026-04-13 16:48:41] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:48:41] INFO: SERVER: Running on port 5000
+[2026-04-13 16:48:53] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:48:53] INFO: SERVER: Running on port 5000
+[2026-04-13 16:49:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:49:07] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:49:07] INFO: SERVER: Running on port 5000
+[2026-04-13 16:49:16] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:49:16] INFO: SERVER: Running on port 5000
+[2026-04-13 16:49:21] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:49:21] INFO: SERVER: Running on port 5000
+[2026-04-13 16:49:27] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:49:27] INFO: SERVER: Running on port 5000
+[2026-04-13 16:50:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 16:50:25] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:50:25] INFO: SERVER: Running on port 5000
+[2026-04-13 16:51:00] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:51:00] INFO: SERVER: Running on port 5000
+[2026-04-13 16:51:17] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 16:51:17] INFO: SERVER: Running on port 5000
