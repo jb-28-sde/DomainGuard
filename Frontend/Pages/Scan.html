@@ -18,9 +18,16 @@
       <input type="text" id="domainInput" placeholder="Enter domain (e.g. example.com)" />
 
       <button type="button" id="scanBtn">Scan</button>
+
     </form>
 
+    <div style="margin-top: 15px; display: flex; gap: 10px;">
+      <button type="button" id="recommendBtn" style="display: none;">📋 Get Recommendations</button>
+      <button type="button" id="pdfBtn" style="display: none;">📄 Generate PDF Report</button>
+    </div>
+
     <div id="error" class="error"></div>
+    <div id="recommendations" class="recommendations" style="display: none;"></div>
     <div id="result" class="result"></div>
   </div>
 

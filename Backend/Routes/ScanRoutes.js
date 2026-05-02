@@ -4,6 +4,7 @@ import {
   getScanProgress,
   getScanReport,
   getAllScans,
+  generateScanReport,
 } from "../Controllers/ScanController.js";
 import logger from "../Middlewares/Logger.js";
 
@@ -23,5 +24,11 @@ router.get("/report/:scan_id", getScanReport);
 
 // Get all scans
 router.get("/scans", getAllScans);
+
+// Generate PDF Report with Recommendations
+router.post("/generate-report", (req, res, next) => {
+  logger.info(`USER EVENT: PDF report generation requested`);
+  generateScanReport(req, res, next);
+});
 
 export default router;

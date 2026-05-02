@@ -1,0 +1,24 @@
+{
+  "name": "brandshield-domain-impersonation-detection",
+  "version": "1.0.0",
+  "description": "BrandShield Domain Impersonation, Typosquatting Detection Platform",
+  "main": "Backend/index.js",
+  "scripts": {
+    "start": "concurrently \"npm run start:backend\" \"npm run start:worker\" \"npm run start:frontend\"",
+    "start:backend": "cd Backend && node index.js",
+    "start:worker": "cd Backend && node worker.js",
+    "start:frontend": "cd Frontend && npx http-server -p 5000 -o Pages/Scan.html"
+  },
+  "keywords": [
+    "domain",
+    "security",
+    "typosquatting",
+    "impersonation",
+    "detection"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

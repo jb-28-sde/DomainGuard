@@ -7,6 +7,12 @@ import connectDB from "./config/database.js";
 import cron from "node-cron";
 import logger from "./Middlewares/Logger.js"; 
 import scanRoutes from "./Routes/ScanRoutes.js";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// __dirname for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Load environment variables
 dotenv.config();
@@ -14,8 +20,11 @@ dotenv.config();
 const app = express();
 
 // Apply middleware (only once)
-app.use(cors({ origin: "http://127.0.0.1:5500" }));
+app.use(cors());
 app.use(express.json());
+
+// Serve reports folder for PDF downloads
+app.use("/reports", express.static(path.join(__dirname, "reports")));
 
 // Connect to database (only once)
 connectDB();
@@ -83,6 +92,10 @@ app.get("/api/result/:domain", async (req, res) => {
     const data = await Scan.findOne({ original_domain: domain });
 
     if (!data) {
+      return res.json({ status: "processing" });
+    }
+
+     if (data.status !== "Completed") {
       return res.json({ status: "processing" });
     }
 

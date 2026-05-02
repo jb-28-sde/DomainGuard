@@ -1,6 +1,8 @@
 import { Worker } from "bullmq";
 import IORedis from "ioredis";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 import generateVariants from "./Domain-analysis/DomainvariantGenerator.js";
 import { calculateSimilarityForVariants } from "./Domain-analysis/SimilarityCalculator.js";
@@ -18,8 +20,11 @@ import {
 } from "./Domain-analysis/riskScoring.js";
 
 const connection = new IORedis({
-  host: "127.0.0.1",
+  host: "fancy-beetle-112031.upstash.io",
   port: 6379,
+  username: "default",
+  password: "gQAAAAAAAbWfAAIgcDI0NTdiYjdmYzI0YzY0NjgyOTlkZTM4NDAwYTA3NmRjNg",
+  tls: {}, 
   maxRetriesPerRequest: null,
 });
 
@@ -30,11 +35,11 @@ const timeout = (ms) =>
 
 // MongoDB FIRST CONNECT
 mongoose
-  .connect("mongodb://127.0.0.1:27017/brandshield")
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB Connected (Worker)");
 
-    // 🚀 Worker START after DB ready
+    // Worker START after DB ready
     const worker = new Worker(
       "scan-queue",
       async (job) => {
@@ -60,31 +65,35 @@ mongoose
                   timeout(15000),
                 ]);
 
+                // Extract the boolean flag from DNS object  
+                const dnsExists = dns?.exists || false;
+
                 let registrar = null;
+                let owner = null;
                 let createdAt = null;
                 let ageInDays = null;
                 let ageRisk = null;
                 let isPrivacyProtected = null;
+                const whoisData = await Promise.race([
+                  getWhoisData(item.variant),
+                  timeout(10000),
+                ]);
 
-                if (dns) {
-                  const whoisData = await Promise.race([
-                    getWhoisData(item.variant),
-                    timeout(10000),
-                  ]);
+                registrar = whoisData?.registrar || null;
+                owner = whoisData?.owner || null;
+                createdAt = whoisData?.creationDate || null;
 
-                  registrar = whoisData?.registrar || null;
-                  createdAt = whoisData?.creationDate || null;
-
+                if (createdAt) {
                   const ageData = analyzeDomainAge(createdAt);
                   ageInDays = ageData.ageInDays;
                   ageRisk = ageData.ageRisk;
-
-                  isPrivacyProtected = checkPrivacy(whoisData?.owner);
                 }
+
+                isPrivacyProtected = checkPrivacy(whoisData?.owner);
 
                 const score = calculateRiskScore({
                   similarity: item.similarity,
-                  dns,
+                  dns: dnsExists,
                   isPrivacyProtected,
                   ageInDays,
                   tldRisk,
@@ -93,8 +102,9 @@ mongoose
                 return {
                   domain: item.variant,
                   similarity: item.similarity,
-                  dns,
+                  dns_exists: dnsExists,
                   registrar,
+                  owner,
                   createdAt,
                   ageInDays,
                   ageRisk,
@@ -115,14 +125,24 @@ mongoose
 
           console.log("Results generated:", cleanResults.length);
 
-          await Scan.create({
-            brandName: domain,
-            original_domain: domain,
-            totalDomains: cleanResults.length,
-            results: cleanResults,
-            createdAt: new Date(),
-            status: "completed",
-          });
+          // Generate unique scan ID
+          const scanId = `scan_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+          // Use updateOne with upsert to allow rescans of the same domain
+          await Scan.updateOne(
+            { original_domain: domain },
+            {
+              $set: {
+                scan_id: scanId,
+                total_domains: cleanResults.length,
+                scanned_domains: cleanResults.length,
+                progress: 100,
+                status: "Completed",
+                results: cleanResults,
+              }
+            },
+            { upsert: true }
+          );
 
           console.log("Scan completed:", domain);
         } catch (err) {

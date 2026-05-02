@@ -1,24 +1,25 @@
 export const getRecommendations = (domainData) => {
   const recommendations = [];
 
-  const { risk_level, isPrivacyProtected, ageInDays } = domainData;
+  const { risk_level, isPrivacyProtected, ageInDays, dns_exists } = domainData;
+  const normalizedRisk = String(risk_level || "LOW").toUpperCase();
 
   // Critical
-  if (risk_level === "Critical") {
+  if (normalizedRisk === "CRITICAL") {
     recommendations.push("Immediate takedown request");
     recommendations.push("Contact hosting provider");
     recommendations.push("Initiate legal action");
   }
 
   // High
-  else if (risk_level === "High") {
+  else if (normalizedRisk === "HIGH") {
     recommendations.push("Report domain to registrar");
     recommendations.push("Monitor DNS activity");
     recommendations.push("Add to blacklist");
   }
 
   // Medium
-  else if (risk_level === "Medium") {
+  else if (normalizedRisk === "MEDIUM") {
     recommendations.push("Keep monitoring domain");
     recommendations.push("Set up alerts");
   }
@@ -33,8 +34,12 @@ export const getRecommendations = (domainData) => {
     recommendations.push("Investigate hidden ownership");
   }
 
+  if (dns_exists) {
+    recommendations.push("Capture hosting evidence for escalation");
+  }
+
   // Domain age check
-  if (ageInDays < 30) {
+  if (typeof ageInDays === "number" && ageInDays < 30) {
     recommendations.push("New domain - high alert");
   }
 

@@ -484,3 +484,668 @@
 [2026-04-13 17:26:00] INFO: CRON EVENT: Automated system check performed.
 [2026-04-13 17:27:00] INFO: CRON EVENT: Automated system check performed.
 [2026-04-13 17:28:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:11:51] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 23:11:51] INFO: SERVER: Running on port 5000
+[2026-04-13 23:12:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:13:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:14:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:15:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:16:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:17:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:18:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:19:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:20:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:21:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:22:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:23:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:24:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:25:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:26:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:27:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:28:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:29:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:30:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:31:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:32:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:33:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:34:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:35:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:36:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:37:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:37:13] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:37:13] INFO: SCAN STARTED: google.com
+[2026-04-13 23:38:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:39:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:40:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:41:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:41:10] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 23:41:11] INFO: SERVER: Running on port 5000
+[2026-04-13 23:42:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:42:46] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 23:42:47] INFO: SERVER: Running on port 5000
+[2026-04-13 23:43:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:43:12] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 23:43:12] INFO: SERVER: Running on port 5000
+[2026-04-13 23:43:33] INFO: DATABASE: Connection attempt initiated.
+[2026-04-13 23:43:33] INFO: SERVER: Running on port 5000
+[2026-04-13 23:44:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:44:23] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:44:23] INFO: SCAN STARTED: google.com
+[2026-04-13 23:44:48] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:44:48] INFO: SCAN STARTED: google.com
+[2026-04-13 23:45:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:46:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:47:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:48:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:48:00] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:48:00] INFO: SCAN STARTED: test.com
+[2026-04-13 23:48:25] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:48:25] INFO: SCAN STARTED: google.com
+[2026-04-13 23:48:37] INFO: USER EVENT: PDF report generation requested
+[2026-04-13 23:48:44] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:48:44] INFO: SCAN STARTED: google.com
+[2026-04-13 23:48:46] INFO: USER EVENT: PDF report generation requested
+[2026-04-13 23:48:52] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:48:52] INFO: SCAN STARTED: google.com
+[2026-04-13 23:49:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:50:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:50:15] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:50:15] INFO: SCAN STARTED: google.com
+[2026-04-13 23:50:31] INFO: USER EVENT: PDF report generation requested
+[2026-04-13 23:51:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:52:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:52:29] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:52:29] INFO: SCAN STARTED: apple.com
+[2026-04-13 23:53:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:53:10] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:53:10] INFO: SCAN STARTED: google.com
+[2026-04-13 23:53:14] INFO: USER EVENT: PDF report generation requested
+[2026-04-13 23:53:25] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:53:25] INFO: SCAN STARTED: google.com
+[2026-04-13 23:53:29] INFO: USER EVENT: PDF report generation requested
+[2026-04-13 23:53:36] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:53:36] INFO: SCAN STARTED: google.com
+[2026-04-13 23:53:39] INFO: USER EVENT: PDF report generation requested
+[2026-04-13 23:54:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:55:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:55:20] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:55:20] INFO: SCAN STARTED: google.com
+[2026-04-13 23:56:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:57:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:57:14] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:57:14] INFO: SCAN STARTED: microsoft.com
+[2026-04-13 23:57:26] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:57:26] INFO: SCAN STARTED: google.com
+[2026-04-13 23:57:30] INFO: USER EVENT: PDF report generation requested
+[2026-04-13 23:57:34] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:57:34] INFO: SCAN STARTED: google.com
+[2026-04-13 23:57:53] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:57:53] INFO: SCAN STARTED: google.com
+[2026-04-13 23:58:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:59:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-13 23:59:53] INFO: USER EVENT: PDF report generation requested
+[2026-04-13 23:59:59] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-13 23:59:59] INFO: SCAN STARTED: google.com
+[2026-04-14 00:00:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:00:06] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 00:01:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:01:45] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 00:01:45] INFO: SERVER: Running on port 5000
+[2026-04-14 00:01:55] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 00:01:55] INFO: SERVER: Running on port 5000
+[2026-04-14 00:02:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:02:04] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 00:02:05] INFO: SERVER: Running on port 5000
+[2026-04-14 00:02:11] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 00:02:11] INFO: SERVER: Running on port 5000
+[2026-04-14 00:03:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:04:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:05:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:05:45] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:05:45] INFO: SCAN STARTED: google.com
+[2026-04-14 00:05:51] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:05:51] INFO: SCAN STARTED: google.com
+[2026-04-14 00:06:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:06:24] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:06:24] INFO: SCAN STARTED: google.com
+[2026-04-14 00:06:30] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 00:07:39] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 00:07:39] INFO: SERVER: Running on port 5000
+[2026-04-14 00:07:43] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:07:43] INFO: SCAN STARTED: google.com
+[2026-04-14 00:08:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:09:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:10:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:10:00] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:10:00] INFO: SCAN STARTED: test.com
+[2026-04-14 00:11:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:11:27] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 00:11:27] INFO: SERVER: Running on port 5000
+[2026-04-14 00:12:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:12:51] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:12:51] INFO: SCAN STARTED: microsoft.com
+[2026-04-14 00:13:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:13:45] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 00:13:46] INFO: SERVER: Running on port 5000
+[2026-04-14 00:14:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:14:33] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:14:33] INFO: SCAN STARTED: facebook.com
+[2026-04-14 00:15:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:16:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:17:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:18:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:18:09] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 00:18:10] INFO: SERVER: Running on port 5000
+[2026-04-14 00:19:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:19:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:20:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:20:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:20:44] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 00:20:44] INFO: SERVER: Running on port 5000
+[2026-04-14 00:21:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:21:59] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 00:21:59] INFO: SERVER: Running on port 5000
+[2026-04-14 00:22:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:22:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:23:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:23:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:29:08] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 00:29:09] INFO: SERVER: Running on port 5000
+[2026-04-14 00:29:09] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:29:09] INFO: SCAN STARTED: google.com
+[2026-04-14 00:29:25] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 00:29:45] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:29:45] INFO: SCAN STARTED: youtube.com
+[2026-04-14 00:30:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:30:21] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 00:30:48] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 00:31:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:32:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:32:20] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:32:20] INFO: SCAN STARTED: google.com
+[2026-04-14 00:32:46] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:32:46] INFO: SCAN STARTED: youtube.com
+[2026-04-14 00:33:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:34:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:35:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:36:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:37:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:38:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:39:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:40:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:41:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:42:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:43:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:44:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:45:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:46:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:46:47] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 00:46:47] INFO: SCAN STARTED: youtube.com
+[2026-04-14 00:47:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:48:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:49:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:50:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:51:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:52:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:53:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:54:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:55:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:56:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:57:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:58:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 00:59:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:00:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:01:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:02:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:03:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:04:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:05:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:06:59] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 01:06:59] INFO: SERVER: Running on port 5000
+[2026-04-14 01:07:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:07:15] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:07:15] INFO: SCAN STARTED: google.com
+[2026-04-14 01:07:21] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 01:08:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:09:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:10:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:10:02] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:10:02] INFO: SCAN STARTED: flipkart.com
+[2026-04-14 01:11:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:11:36] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 01:11:36] INFO: SERVER: Running on port 5000
+[2026-04-14 01:11:53] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:11:53] INFO: SCAN STARTED: flipkart.com
+[2026-04-14 01:12:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:13:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:14:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:14:02] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:14:02] INFO: SCAN STARTED: flipkart.com
+[2026-04-14 01:15:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:15:41] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 01:15:41] INFO: SERVER: Running on port 5000
+[2026-04-14 01:15:55] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:15:55] INFO: SCAN STARTED: flipkart.com
+[2026-04-14 01:16:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:17:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:18:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:19:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:20:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:25:05] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 01:25:05] INFO: SERVER: Running on port 5000
+[2026-04-14 01:25:19] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:25:19] INFO: SCAN STARTED: flipkart.com
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: flipk@rt.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: f1ipk@rt.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: fiipk@rt.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: fl1pk@rt.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: fllpk@rt.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: glipkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: dlipkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: flipkaft.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: tlipkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: flipkqrt.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: rlipkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: f1ipkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: vlipkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: lipkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: fl1pkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: fljpkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: flipoart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: flipk-art.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: fliipkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: flipkaet.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: flipkkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: foipkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: fpipkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: flilkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: flip-kart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: flipiart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: fli-pkart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: flipmart.com - Timeout
+[2026-04-14 01:25:30] ERROR: VARIANT FAILED: clipkart.com - Timeout
+[2026-04-14 01:25:32] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 01:25:34] ERROR: VARIANT FAILED: fipkart.com - Timeout
+[2026-04-14 01:25:34] ERROR: VARIANT FAILED: flpkart.com - Timeout
+[2026-04-14 01:25:34] ERROR: VARIANT FAILED: flipkrt.com - Timeout
+[2026-04-14 01:25:34] ERROR: VARIANT FAILED: flipkar.com - Timeout
+[2026-04-14 01:25:35] INFO: SCAN COMPLETED: flipkart.com
+[2026-04-14 01:25:58] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:25:58] INFO: SCAN STARTED: flipkart.com
+[2026-04-14 01:26:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:26:13] ERROR: VARIANT FAILED: flipkar.com - Timeout
+[2026-04-14 01:26:13] INFO: SCAN COMPLETED: flipkart.com
+[2026-04-14 01:27:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:28:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:29:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:29:24] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 01:29:24] INFO: SERVER: Running on port 5000
+[2026-04-14 01:29:35] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:29:35] INFO: SCAN STARTED: flipkart.com
+[2026-04-14 01:29:50] ERROR: VARIANT FAILED: fipkart.com - Timeout
+[2026-04-14 01:29:50] ERROR: VARIANT FAILED: flpkart.com - Timeout
+[2026-04-14 01:29:50] ERROR: VARIANT FAILED: flipkrt.com - Timeout
+[2026-04-14 01:29:50] ERROR: VARIANT FAILED: flipkar.com - Timeout
+[2026-04-14 01:29:50] INFO: SCAN COMPLETED: flipkart.com
+[2026-04-14 01:30:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:30:39] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:30:39] INFO: SCAN STARTED: godaddy.com
+[2026-04-14 01:30:54] ERROR: VARIANT FAILED: godaddyy.com - Timeout
+[2026-04-14 01:30:54] INFO: SCAN COMPLETED: godaddy.com
+[2026-04-14 01:31:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:31:05] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 01:32:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:33:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:34:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:34:35] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 01:34:35] INFO: SERVER: Running on port 5000
+[2026-04-14 01:35:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:35:09] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:35:09] INFO: SCAN STARTED: yahoo.com
+[2026-04-14 01:35:20] INFO: SCAN COMPLETED: yahoo.com
+[2026-04-14 01:36:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:37:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:37:03] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:37:03] INFO: SCAN STARTED: yahoo.com
+[2026-04-14 01:37:14] ERROR: VARIANT FAILED: yauoo.com - Timeout
+[2026-04-14 01:37:14] ERROR: VARIANT FAILED: yahlo.com - Timeout
+[2026-04-14 01:37:14] ERROR: VARIANT FAILED: yahok.com - Timeout
+[2026-04-14 01:37:14] ERROR: VARIANT FAILED: yanoo.com - Timeout
+[2026-04-14 01:37:15] ERROR: VARIANT FAILED: yaoo.com - Timeout
+[2026-04-14 01:37:15] INFO: SCAN COMPLETED: yahoo.com
+[2026-04-14 01:37:32] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 01:38:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:38:06] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 01:38:06] INFO: SCAN STARTED: godaddy.com
+[2026-04-14 01:38:21] ERROR: VARIANT FAILED: godaddyy.com - Timeout
+[2026-04-14 01:38:21] INFO: SCAN COMPLETED: godaddy.com
+[2026-04-14 01:38:37] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 01:39:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:40:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 01:41:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:06:14] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 19:06:15] INFO: SERVER: Running on port 5000
+[2026-04-14 19:07:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:08:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:09:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:10:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:11:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:12:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:13:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:14:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:15:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:16:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:16:53] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 19:16:53] INFO: SERVER: Running on port 5000
+[2026-04-14 19:17:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:17:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:18:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:18:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:19:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:36:30] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 19:36:30] INFO: SERVER: Running on port 5000
+[2026-04-14 19:37:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:37:36] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 19:37:36] INFO: SERVER: Running on port 5000
+[2026-04-14 19:38:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:39:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:39:57] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 19:39:57] INFO: SERVER: Running on port 5000
+[2026-04-14 19:40:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:41:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:42:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:43:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:44:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:45:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:46:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:47:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:48:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:49:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:50:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:51:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:52:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:53:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:54:27] INFO: DATABASE: Connection attempt initiated.
+[2026-04-14 19:54:27] INFO: SERVER: Running on port 5000
+[2026-04-14 19:54:42] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 19:54:45] INFO: SCAN STARTED: facebook.com
+[2026-04-14 19:54:55] ERROR: VARIANT FAILED: facebool.com - Timeout
+[2026-04-14 19:54:55] ERROR: VARIANT FAILED: facebopk.com - Timeout
+[2026-04-14 19:54:56] ERROR: VARIANT FAILED: facdbook.com - Timeout
+[2026-04-14 19:54:56] ERROR: VARIANT FAILED: facebokk.com - Timeout
+[2026-04-14 19:54:56] ERROR: VARIANT FAILED: facebok.com - Timeout
+[2026-04-14 19:54:56] ERROR: VARIANT FAILED: fcebook.com - Timeout
+[2026-04-14 19:54:56] ERROR: VARIANT FAILED: favebook.com - Timeout
+[2026-04-14 19:54:56] ERROR: VARIANT FAILED: fcaebook.com - Timeout
+[2026-04-14 19:54:56] ERROR: VARIANT FAILED: racebook.com - Timeout
+[2026-04-14 19:54:57] ERROR: VARIANT FAILED: faxebook.com - Timeout
+[2026-04-14 19:54:58] ERROR: VARIANT FAILED: vacebook.com - Timeout
+[2026-04-14 19:54:58] ERROR: VARIANT FAILED: faebook.com - Timeout
+[2026-04-14 19:55:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:55:00] ERROR: VARIANT FAILED: tacebook.com - Timeout
+[2026-04-14 19:55:06] ERROR: VARIANT FAILED: faceblok.com - Timeout
+[2026-04-14 19:55:08] ERROR: VARIANT FAILED: facebiok.com - Timeout
+[2026-04-14 19:55:09] ERROR: VARIANT FAILED: facebookk.com - Timeout
+[2026-04-14 19:55:10] INFO: SCAN COMPLETED: facebook.com
+[2026-04-14 19:55:14] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 19:56:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:56:15] INFO: USER EVENT: PDF report generation requested
+[2026-04-14 19:56:59] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-14 19:56:59] INFO: SCAN STARTED: facebook.com
+[2026-04-14 19:57:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:57:09] ERROR: VARIANT FAILED: facegook.com - Timeout
+[2026-04-14 19:57:09] ERROR: VARIANT FAILED: facebooo.com - Timeout
+[2026-04-14 19:57:09] ERROR: VARIANT FAILED: faceb00k.com - Timeout
+[2026-04-14 19:57:13] INFO: SCAN COMPLETED: facebook.com
+[2026-04-14 19:58:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 19:59:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 20:00:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 20:01:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 20:02:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 20:03:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-14 20:06:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-15 12:11:57] INFO: DATABASE: Connection attempt initiated.
+[2026-04-15 12:11:58] INFO: SERVER: Running on port 5000
+[2026-04-15 12:12:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-15 12:12:42] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-15 12:12:43] INFO: SCAN STARTED: csib.com
+[2026-04-15 12:12:53] ERROR: VARIANT FAILED: c$1b.com - Timeout
+[2026-04-15 12:12:54] INFO: SCAN COMPLETED: csib.com
+[2026-04-15 12:13:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-15 12:14:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-15 12:14:01] INFO: USER EVENT: PDF report generation requested
+[2026-04-18 12:17:05] INFO: DATABASE: Connection attempt initiated.
+[2026-04-18 12:17:05] INFO: SERVER: Running on port 5000
+[2026-04-18 12:17:59] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-18 12:18:07] INFO: CRON EVENT: Automated system check performed.
+[2026-04-18 12:18:15] INFO: SCAN STARTED: irctc.com
+[2026-04-18 12:18:30] ERROR: VARIANT FAILED: irtc.com - Timeout
+[2026-04-18 12:18:30] INFO: SCAN COMPLETED: irctc.com
+[2026-04-18 12:19:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:01:58] INFO: DATABASE: Connection attempt initiated.
+[2026-04-19 15:01:58] INFO: SERVER: Running on port 5000
+[2026-04-19 15:02:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:03:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:04:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:05:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:06:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:07:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:09:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:10:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:11:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:12:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:13:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:14:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-19 15:18:20] INFO: DATABASE: Connection attempt initiated.
+[2026-04-19 15:18:20] INFO: SERVER: Running on port 5000
+[2026-04-19 15:19:00] INFO: CRON EVENT: Automated system check performed.
+[2026-04-20 14:24:55] INFO: DATABASE: Connection attempt initiated.
+[2026-04-20 14:25:04] INFO: SERVER: Running on port 5000
+[2026-04-20 14:26:03] INFO: CRON EVENT: Automated system check performed.
+[2026-04-20 14:26:21] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-04-20 14:26:24] INFO: SCAN STARTED: google.com
+[2026-04-20 14:26:39] ERROR: VARIANT FAILED: glogle.com - Timeout
+[2026-04-20 14:26:39] ERROR: VARIANT FAILED: gootle.com - Timeout
+[2026-04-20 14:26:39] ERROR: VARIANT FAILED: gooyle.com - Timeout
+[2026-04-20 14:26:39] ERROR: VARIANT FAILED: googoe.com - Timeout
+[2026-04-20 14:26:41] INFO: SCAN COMPLETED: google.com
+[2026-04-20 14:27:02] INFO: CRON EVENT: Automated system check performed.
+[2026-04-20 14:27:02] INFO: USER EVENT: PDF report generation requested
+[2026-04-20 14:28:02] INFO: CRON EVENT: Automated system check performed.
+[2026-04-20 14:29:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:06:44] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 15:06:44] INFO: SERVER: Running on port 5000
+[2026-05-01 15:07:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:08:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:09:01] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:10:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:11:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:12:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:13:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:14:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:15:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:16:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:17:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:18:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:19:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:20:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:21:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:22:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:23:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:24:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:25:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:26:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:27:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:28:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:29:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:30:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:31:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:32:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:33:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:34:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:35:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:36:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:37:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:38:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:39:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:40:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:41:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:42:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:43:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:44:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:45:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:46:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:47:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:48:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:49:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:50:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:51:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:52:57] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 15:53:00] INFO: SERVER: Running on port 5000
+[2026-05-01 15:53:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:53:46] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-05-01 15:53:47] INFO: SCAN STARTED: google.com
+[2026-05-01 15:53:58] ERROR: VARIANT FAILED: googel.com - Timeout
+[2026-05-01 15:53:58] ERROR: VARIANT FAILED: googpe.com - Timeout
+[2026-05-01 15:53:58] ERROR: VARIANT FAILED: goog1e.com - Timeout
+[2026-05-01 15:53:59] ERROR: VARIANT FAILED: goofle.com - Timeout
+[2026-05-01 15:53:59] ERROR: VARIANT FAILED: g0ogl3.com - Timeout
+[2026-05-01 15:54:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:54:02] ERROR: VARIANT FAILED: glogle.com - Timeout
+[2026-05-01 15:54:02] ERROR: VARIANT FAILED: gootle.com - Timeout
+[2026-05-01 15:54:02] ERROR: VARIANT FAILED: gooyle.com - Timeout
+[2026-05-01 15:54:02] ERROR: VARIANT FAILED: googoe.com - Timeout
+[2026-05-01 15:54:02] INFO: SCAN COMPLETED: google.com
+[2026-05-01 15:54:16] INFO: USER EVENT: PDF report generation requested
+[2026-05-01 15:54:22] INFO: USER EVENT: PDF report generation requested
+[2026-05-01 15:55:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:56:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:57:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:58:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 15:59:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 16:00:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 16:02:04] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 16:02:04] INFO: SERVER: Running on port 5000
+[2026-05-01 16:03:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 16:03:04] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-05-01 16:03:10] INFO: SCAN STARTED: google.com
+[2026-05-01 16:03:20] ERROR: VARIANT FAILED: gokgle.com - Timeout
+[2026-05-01 16:03:20] ERROR: VARIANT FAILED: googl.com - Timeout
+[2026-05-01 16:03:21] ERROR: VARIANT FAILED: gkogle.com - Timeout
+[2026-05-01 16:03:22] ERROR: VARIANT FAILED: goohle.com - Timeout
+[2026-05-01 16:03:25] ERROR: VARIANT FAILED: glogle.com - Timeout
+[2026-05-01 16:03:25] ERROR: VARIANT FAILED: gootle.com - Timeout
+[2026-05-01 16:03:25] ERROR: VARIANT FAILED: gooyle.com - Timeout
+[2026-05-01 16:03:25] ERROR: VARIANT FAILED: googoe.com - Timeout
+[2026-05-01 16:03:25] INFO: SCAN COMPLETED: google.com
+[2026-05-01 16:03:51] INFO: USER EVENT: PDF report generation requested
+[2026-05-01 16:04:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 16:05:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 16:06:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 16:07:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 16:08:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 16:09:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 17:49:26] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 17:49:26] INFO: SERVER: Running on port 5000
+[2026-05-01 17:50:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 17:51:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 17:52:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 17:53:21] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 17:53:21] INFO: SERVER: Running on port 5000
+[2026-05-01 17:54:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 17:55:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 17:57:07] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 17:57:07] INFO: SERVER: Running on port 5000
+[2026-05-01 17:57:50] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 17:57:50] INFO: SERVER: Running on port 5000
+[2026-05-01 17:58:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 17:58:03] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-05-01 17:58:03] INFO: SCAN STARTED: google.com
+[2026-05-01 17:58:14] ERROR: VARIANT FAILED: golgle.com - Timeout
+[2026-05-01 17:58:18] ERROR: VARIANT FAILED: glogle.com - Timeout
+[2026-05-01 17:58:18] ERROR: VARIANT FAILED: gootle.com - Timeout
+[2026-05-01 17:58:18] ERROR: VARIANT FAILED: gooyle.com - Timeout
+[2026-05-01 17:58:18] ERROR: VARIANT FAILED: googoe.com - Timeout
+[2026-05-01 17:58:18] INFO: SCAN COMPLETED: google.com
+[2026-05-01 17:58:33] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-05-01 17:58:33] INFO: SCAN STARTED: google.com
+[2026-05-01 17:58:43] ERROR: VARIANT FAILED: googie.com - Timeout
+[2026-05-01 17:58:43] ERROR: VARIANT FAILED: googld.com - Timeout
+[2026-05-01 17:58:43] ERROR: VARIANT FAILED: googl3.com - Timeout
+[2026-05-01 17:58:48] ERROR: VARIANT FAILED: gootle.com - Timeout
+[2026-05-01 17:58:48] ERROR: VARIANT FAILED: googoe.com - Timeout
+[2026-05-01 17:58:55] ERROR: VARIANT FAILED: gooyle.com - Timeout
+[2026-05-01 17:58:55] INFO: SCAN COMPLETED: google.com
+[2026-05-01 17:59:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:00:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:35:05] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 18:35:05] INFO: SERVER: Running on port 5000
+[2026-05-01 18:36:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:36:25] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-05-01 18:36:25] INFO: SCAN STARTED: google.com
+[2026-05-01 18:36:36] ERROR: VARIANT FAILED: yoogle.com - Timeout
+[2026-05-01 18:36:36] ERROR: VARIANT FAILED: gooogle.com - Timeout
+[2026-05-01 18:36:40] ERROR: VARIANT FAILED: glogle.com - Timeout
+[2026-05-01 18:36:40] ERROR: VARIANT FAILED: gootle.com - Timeout
+[2026-05-01 18:36:40] ERROR: VARIANT FAILED: gooyle.com - Timeout
+[2026-05-01 18:36:40] ERROR: VARIANT FAILED: googoe.com - Timeout
+[2026-05-01 18:36:40] INFO: SCAN COMPLETED: google.com
+[2026-05-01 18:37:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:39:26] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 18:39:26] INFO: SERVER: Running on port 5000
+[2026-05-01 18:40:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:41:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:42:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:42:42] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 18:42:42] INFO: SERVER: Running on port 5000
+[2026-05-01 18:43:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:44:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:45:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:46:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:48:04] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 18:48:04] INFO: SERVER: Running on port 5000
+[2026-05-01 18:48:34] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-05-01 18:48:35] INFO: SCAN STARTED: google.com
+[2026-05-01 18:48:46] ERROR: VARIANT FAILED: goog1e.com - Timeout
+[2026-05-01 18:48:50] ERROR: VARIANT FAILED: glogle.com - Timeout
+[2026-05-01 18:48:50] ERROR: VARIANT FAILED: gootle.com - Timeout
+[2026-05-01 18:48:50] ERROR: VARIANT FAILED: gooyle.com - Timeout
+[2026-05-01 18:48:50] ERROR: VARIANT FAILED: googoe.com - Timeout
+[2026-05-01 18:48:50] INFO: SCAN COMPLETED: google.com
+[2026-05-01 18:49:01] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:50:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:51:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:52:04] INFO: DATABASE: Connection attempt initiated.
+[2026-05-01 18:52:05] INFO: SERVER: Running on port 5000
+[2026-05-01 18:52:24] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-05-01 18:52:24] INFO: SCAN STARTED: google.com
+[2026-05-01 18:52:39] ERROR: VARIANT FAILED: glogle.com - Timeout
+[2026-05-01 18:52:39] ERROR: VARIANT FAILED: gootle.com - Timeout
+[2026-05-01 18:52:39] ERROR: VARIANT FAILED: gooyle.com - Timeout
+[2026-05-01 18:52:39] ERROR: VARIANT FAILED: googoe.com - Timeout
+[2026-05-01 18:52:39] INFO: SCAN COMPLETED: google.com
+[2026-05-01 18:53:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:54:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:55:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-01 18:56:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-02 14:54:07] INFO: DATABASE: Connection attempt initiated.
+[2026-05-02 14:54:07] INFO: SERVER: Running on port 5000
+[2026-05-02 14:55:03] INFO: CRON EVENT: Automated system check performed.
+[2026-05-02 14:55:12] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-05-02 14:55:15] INFO: SCAN STARTED: google.com
+[2026-05-02 14:55:28] ERROR: VARIANT FAILED: voogle.com - Timeout
+[2026-05-02 14:55:29] ERROR: VARIANT FAILED: toogle.com - Timeout
+[2026-05-02 14:55:30] ERROR: VARIANT FAILED: glogle.com - Timeout
+[2026-05-02 14:55:30] ERROR: VARIANT FAILED: gootle.com - Timeout
+[2026-05-02 14:55:30] ERROR: VARIANT FAILED: gooyle.com - Timeout
+[2026-05-02 14:55:30] ERROR: VARIANT FAILED: googoe.com - Timeout
+[2026-05-02 14:55:30] INFO: SCAN COMPLETED: google.com
+[2026-05-02 14:56:04] INFO: CRON EVENT: Automated system check performed.
+[2026-05-02 14:57:01] INFO: CRON EVENT: Automated system check performed.
+[2026-05-02 14:58:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-02 14:59:02] INFO: CRON EVENT: Automated system check performed.
+[2026-05-02 15:00:01] INFO: CRON EVENT: Automated system check performed.
+[2026-05-02 15:01:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-02 15:02:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-02 15:03:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-02 15:04:00] INFO: CRON EVENT: Automated system check performed.

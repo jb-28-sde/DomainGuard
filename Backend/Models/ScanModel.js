@@ -51,6 +51,7 @@ const scanSchema = new mongoose.Schema(
         dns_exists: Boolean,
 
         registrar: String,
+        owner: String,
         createdAt: String,
 
         ageInDays: Number,

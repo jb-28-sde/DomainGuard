@@ -136,6 +136,10 @@ button:hover {
   color: #b71c1c;
 }
 
+.warning {
+  background: linear-gradient(135deg, #fff3cd, #ffe69c);
+  color: #856404;
+}
 
 table {
   width: 100%;
@@ -230,4 +234,78 @@ tbody tr:hover {
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   margin-top: 16px;
+}
+
+.result-card.info {
+  background: linear-gradient(135deg, #e0f2fe, #baf3fb);
+  border-left: 5px solid #0284c7;
+  color: #0c4a6e;
+}
+
+/* Recommendations and PDF buttons */
+#recommendBtn, #pdfBtn {
+  width: 48%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.25s;
+  font-weight: 500;
+}
+
+#pdfBtn {
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+}
+
+#recommendBtn:hover, #pdfBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+#recommendBtn:disabled, #pdfBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Recommendations card */
+.recommendations-card {
+  background: linear-gradient(135deg, #f0f4ff, #e9e5ff);
+  border-left: 5px solid #8b5cf6;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
+}
+
+.recommendations-card h3 {
+  color: #6d28d9;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.recommendations-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recommendations-card li {
+  padding: 10px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #4c1d95;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.recommendations-card li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #8b5cf6;
+  font-weight: bold;
 }

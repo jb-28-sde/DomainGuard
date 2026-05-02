@@ -3,39 +3,52 @@ export const processDomainData = (data) => {
     return {
       all: [],
       highSimilarity: [],
-      risky: []
+      risky: [],
     };
   }
 
-  // Step 1 - Filter: keep only dns === true
-  let filtered = data.filter(item => item.dns === true);
+  const cleaned = data.map((item) => {
+    const newItem = {};
 
-  // Step 2 - Clean: replace null with "N/A"
-  let cleaned = filtered.map(item => {
-    let newItem = {};
-    for (let key in item) {
-      if (key === "createdAt" && item[key]) {
-    newItem[key] = new Date(item[key]).toLocaleDateString("en-GB");
-  }
-  else
-      newItem[key] = item[key] === null ? "N/A" : item[key];
+    for (const key in item) {
+      if (key === "dns_exists") {
+        newItem.dns = item[key];
+        newItem.dns_exists = item[key];
+      } else if (key === "createdAt" && item[key]) {
+        const parsedDate = new Date(item[key]);
+        newItem[key] = Number.isNaN(parsedDate.getTime())
+          ? item[key]
+          : parsedDate.toLocaleDateString("en-GB");
+      } else {
+        newItem[key] =
+          item[key] === null || item[key] === undefined ? "N/A" : item[key];
+      }
     }
+
     return newItem;
   });
 
-  // Step 3 - Sort: similarity highest to lowest
-  cleaned.sort((a, b) => b.similarity - a.similarity);
+  cleaned.sort((a, b) => {
+    const simA = typeof a.similarity === "number" ? a.similarity : 0;
+    const simB = typeof b.similarity === "number" ? b.similarity : 0;
+    return simB - simA;
+  });
 
-  // Step 4 - Filter options
-  let highSimilarity = cleaned.filter(item => item.similarity >= 90);
+  const highSimilarity = cleaned.filter(
+    (item) => typeof item.similarity === "number" && item.similarity >= 80,
+  );
 
-  let risky = cleaned.filter(item =>
-    item.ageRisk === "HIGH" || item.ageRisk === "MEDIUM"
+  const risky = cleaned.filter(
+    (item) =>
+      item.ageRisk === "HIGH" ||
+      item.ageRisk === "MEDIUM" ||
+      item.risk_level === "HIGH" ||
+      item.risk_level === "CRITICAL",
   );
 
   return {
     all: cleaned,
     highSimilarity,
-    risky
+    risky,
   };
 };
