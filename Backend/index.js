@@ -9,7 +9,6 @@ import logger from "./Middlewares/Logger.js";
 import scanRoutes from "./Routes/ScanRoutes.js";
 import path from "path";
 import { fileURLToPath } from "url";
-import "./worker.js";
 
 // __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
