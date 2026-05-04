@@ -1240,3 +1240,17 @@
 [2026-05-04 15:35:15] ERROR: VARIANT FAILED: gooyle.com - Timeout
 [2026-05-04 15:35:15] ERROR: VARIANT FAILED: googoe.com - Timeout
 [2026-05-04 15:35:15] INFO: SCAN COMPLETED: google.com
+[2026-05-04 15:47:23] INFO: DATABASE: Connection attempt initiated.
+[2026-05-04 15:47:23] INFO: SERVER: Running on port 5000
+[2026-05-04 15:47:44] INFO: USER EVENT: Manual scan requested from IP: ::1
+[2026-05-04 15:47:44] INFO: SCAN STARTED: google.com
+[2026-05-04 15:47:59] ERROR: VARIANT FAILED: glogle.com - Timeout
+[2026-05-04 15:47:59] ERROR: VARIANT FAILED: gootle.com - Timeout
+[2026-05-04 15:47:59] ERROR: VARIANT FAILED: gooyle.com - Timeout
+[2026-05-04 15:47:59] ERROR: VARIANT FAILED: googoe.com - Timeout
+[2026-05-04 15:48:00] INFO: SCAN COMPLETED: google.com
+[2026-05-04 15:48:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-04 15:48:06] INFO: USER EVENT: PDF report generation requested
+[2026-05-04 15:49:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-04 15:50:00] INFO: CRON EVENT: Automated system check performed.
+[2026-05-04 15:51:00] INFO: CRON EVENT: Automated system check performed.
