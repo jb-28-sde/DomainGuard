@@ -2,7 +2,6 @@ import { Worker } from "bullmq";
 import IORedis from "ioredis";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-dotenv.config();
 
 import generateVariants from "./Domain-analysis/DomainvariantGenerator.js";
 import { calculateSimilarityForVariants } from "./Domain-analysis/SimilarityCalculator.js";
@@ -20,11 +19,8 @@ import {
 } from "./Domain-analysis/riskScoring.js";
 
 const connection = new IORedis({
-  host: "fancy-beetle-112031.upstash.io",
+  host: "127.0.0.1",
   port: 6379,
-  username: "default",
-  password: "gQAAAAAAAbWfAAIgcDI0NTdiYjdmYzI0YzY0NjgyOTlkZTM4NDAwYTA3NmRjNg",
-  tls: {}, 
   maxRetriesPerRequest: null,
 });
 
@@ -35,7 +31,7 @@ const timeout = (ms) =>
 
 // MongoDB FIRST CONNECT
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect("mongodb://127.0.0.1:27017/brandshield")
   .then(() => {
     console.log("MongoDB Connected (Worker)");
 

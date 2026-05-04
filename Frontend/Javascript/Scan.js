@@ -395,3 +395,4 @@ document.addEventListener("DOMContentLoaded", () => {
     renderResult(currentDomain, demoData);
   }
 });
+
